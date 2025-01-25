@@ -1,5 +1,4 @@
 import { projectsData } from "@/data/projectsData";
-import styles from "@/styles/ProjectPage.module.css";
 
 export default function ProjectPage({ project }) {
   return (
