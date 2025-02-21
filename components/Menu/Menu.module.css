@@ -1,0 +1,48 @@
+.navLinks {
+    display: flex;
+}
+
+/* Header Layout */
+.row {
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-right: 10vw;
+    gap: 6rem;
+    width: 55vw;
+}
+
+.row button {
+    font-size: 1rem;
+}
+
+/* Home page Layout */
+.column {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 8vw;
+    margin-top: 5vh;
+    gap: 3rem;
+    width: 30vw;
+}
+
+.column button {
+    font-size: 1.2rem;
+}
+
+/* Default button styles */
+.navLinks button {
+    background-color: transparent;
+    color: var(--violet);
+}
+
+/* Hover effect */
+.navLinks button:hover {
+    color: var(--plum);
+}
+
+/* Hide /contact on mobile */
+@media (max-width: 820x) {
+    .hideOnMobile {
+        display: none;
+    }
+}

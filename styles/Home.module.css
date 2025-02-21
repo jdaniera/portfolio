@@ -1,13 +1,13 @@
 .page {
   display: flex;
   flex-direction: column;
-  scroll-snap-type: y mandatory; /* Full-page snapping */
-  overflow-y: scroll; /* Enable scrolling for the page */
-  height: 100vh; /* Ensure full-page height */
-  scroll-behavior: smooth; /* Smooth scrolling */
+  scroll-snap-type: y mandatory; 
+  overflow-y: scroll;
+  height: 100vh;
+  scroll-behavior: smooth;
+  background-color: var(--light-cream);
 }
 
-/* Snap Sections */
 .snapSection {
   scroll-snap-align: start;
   height: 100vh; 
@@ -16,37 +16,49 @@
   align-items: center;
 }
 
-/* Intro Section Specifics */
 .introSection {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
-  align-items: center; 
-  height: 100vh;
+  justify-content: flex-start;
+  align-items: flex-start;
   padding-top: clamp(30vh, 33vh, 34vh);
+  background-color: var(--yellow);
 }
+
 
 .introContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
 }
-
 
 .projectsSection {
   background-color: var(--extra-light-lime);
   height: 100vh;
 }
 
+.SectionTitleContainer {
+  position: sticky;
+  flex-direction: column;
+  display: flex;
+  top: 30vw;
+  left: -2px;
+  height: 50px;
+  width: 101vw;
+  font-family: var(--section-title);
+  font-size: 1rem;
+  line-height: 3rem;
+  color: var(--violet);
+}
+
+.titleBottom {
+  align-self: flex-end;
+}
+
 .footerSection {
   background-color: var(--light-gray);
 }
 
-/* Logo Styling */
-.imgContainer {
+.intro__figure {
   position: absolute;
   top: clamp(40%, 44%, 46%);
   left: clamp(64%, 65%, 66%);
@@ -64,10 +76,9 @@
 
 .hidden {
   opacity: 0;
-  pointer-events: none; /* Prevent interactions when hidden */
+  pointer-events: none;
 }
 
-/* Ensure Hover Effects Are Applied */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
     background: var(--button-primary-hover);
@@ -86,98 +97,24 @@
 }
 
 
-/* LARGER SCREENS */
 @media (min-width: 768px) {
   .imgContainer {
     top: clamp(46%, 48%, 50%);
     left: clamp(50%, 53%, 55%);
   }
+
   .logo {
-    max-width: 176px;
+    max-width: 300px;
     height: auto;
     opacity: 0.6;
     transition: opacity 0.3s ease;
   }
-}
 
-
-/* GRADIENT */
-.blobOuterContainer{
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  z-index: -999;
-  inset: 0;
-  margin: auto;
-  filter: blur(100px);
-  background-color: var(--light-lime);
-}
-
-.blobInnerContainer{
-  border-radius: 9999px;
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 100vw;
-  height: 100vh;
-  min-width: 1000px;
-  overflow: hidden;
-}
-
-.blob{
-  position: absolute;
-  width: 50vw;
-  height: 50vh;
-  inset: 0;
-  margin: auto;
-  background: radial-gradient(
-    circle,
-    #f6ff79,
-    #fcff98,
-    #fbffb0,
-    #FCFFDD,
-  );
-  animation: floatyBlob 10s infinite linear;
-  filter: url(#grainyFilter);
-}
-
-
-
-
-
-
-@keyframes floatyBlob {
-  0% {
-    transform: translate(0, 0) scale(1.2);
-  }
-  25% {
-    transform: translate(100px, -150px) scale(1);
-  }
-  50% {
-    transform: translate(-500px, 50px) scale(0.5);
-  }
-  75% {
-    transform: translate(150px, 200px) scale(1.1);
-  }
-  100% {
-    transform: translate(0, 0) scale(1.2);
-  }
-}
-
-@keyframes floatyBlob-2 {
-  0% {
-    transform: translate(0, 0) scale(1.3);
-  }
-  25% {
-    transform: translate(-300px, 250px) scale(2.1);
-  }
-  50% {
-    transform: translate(500px, -100px) scale(1.5);
-  }
-  75% {
-    transform: translate(250px, 300px) scale(1);
-  }
-  100% {
-    transform: translate(0, 0) scale(1.2);
+  .SectionTitleContainer {
+    width: 15vw;
+    margin-left: 50px;
+    top: 15vw;
+    font-size: 2rem;
+    line-height: 3.5rem;
   }
 }

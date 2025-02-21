@@ -1,29 +1,18 @@
-@import url('https://fonts.cdnfonts.com/css/gantari');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900,i');
+@import url('https://fonts.cdnfonts.com/css/source-sans-pro');
 
 :root {
   /* COLOURS */
-  --charcoal: #3d3935;
-  --indigo: #3f3a60;
-  --med-indigo: #5b548d;
-  --light-indigo: #908abc;
-  --xtra-light-indigo: #d6d4e6;
-  --lime: #b8be14;
-  --med-lime: #ebef7c;
-  --light-lime: #f9fad5;
-  --xtra-light-lime: #FDFEF4;
-  --ochre: #F4C52D;
-  --med-ochre: #F8DF8D;
-  --light-ochre: #FAEBBA;
-  --xtra-light-ochre: #FEFCF6;
-  --ivory: #FFFCF4;
-  --pink: #EF7CB2;
+  --yellow: #FAEAA2;
+  --violet: #5657C0;
+  --dark-blue: #0A0C7E;
+  --lavender: #BFB2D5;
+  --med-lavender: #A083C8;
+  --plum: #A80079;
+  --cream: #FEFAE6;
+  --light-cream: #FFFCF1;
+  --white: #FFFEFC;
 
-  /* TYPEFACES */
-  --name-font: 'Nyght-Reg-Italic', serif;
-  --name-font-bold: 'Nyght-Bold-Italic', serif;
-  --name-font-size: 2.5rem;
-  --section-title: 'Nyght-Med-Italic', serif;
-  --body: 'Gantari', sans-serif;
 }
 
 * {
@@ -35,9 +24,10 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: var(--body);
-  font-size: 1rem; /* Normal text size */
-  font-weight: 200; /* Light text */
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1rem; 
+  font-weight: 400;
+  color: var(--dark-blue);
 }
 
 
@@ -47,6 +37,7 @@ html, body {
        url('/fonts/NyghtSerif-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
+  letter-spacing: 3em;
 }
 
 @font-face {
@@ -55,14 +46,16 @@ html, body {
        url('/fonts/NyghtSerif-RegularItalic.woff') format('woff');
   font-weight: normal;
   font-style: italic;
+  letter-spacing: 3em;
 }
 
 @font-face {
   font-family: 'Nyght-Med-Italic';
   src: url('/fonts/NyghtSerif-MediumItalic.woff2') format('woff2'),
        url('/fonts/NyghtSerif-MediumItalic.woff') format('woff');
-  font-weight: normal;
+  font-weight: medium;
   font-style: italic;
+  letter-spacing: 3em;
 }
 
 @font-face {
@@ -71,6 +64,7 @@ html, body {
        url('/fonts/NyghtSerif-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
+  letter-spacing: 3em;
 }
 
 @font-face {
@@ -80,6 +74,22 @@ html, body {
   font-weight: bold;
   font-style: italic;
 }
+
+.name-font-reg {
+  font-family: 'Nyght-Reg-Italic', serif;
+  /* letter-spacing: 0.2rem; */
+}
+
+.name-font-med {
+  font-family: 'Nyght-Med-Italic', serif;
+  /* letter-spacing: 0.2rem; */
+}
+
+.name-font-bold {
+  font-family: 'Nyght-Bold-Italic', serif;
+  /* letter-spacing: 0.2rem; */
+}
+
 
 a {
   color: #3F3A60; /* Link color */

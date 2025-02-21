@@ -1,0 +1,44 @@
+.outerContainer {
+  display: flex;
+  flex-direction: column; /* Stack subtitle on top */
+  width: 100%;
+  max-width: 80vw;
+  margin: 2rem auto;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.leftColumn {
+  flex: 1;
+  text-align: left;
+  max-width: 200px;
+}
+
+.rightColumn {
+  flex: 3;
+  text-align: left;
+  padding-left: 1.5rem;
+}
+
+/* Subtitle Row */
+.subtitleRow {
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 0.5rem;  */
+}
+
+.containerSubtitle {
+  font-size: 1rem;
+  color: var(--lavender);
+  font-weight: bold;
+}
+
+/* Title Row */
+.containerTitle {
+  font-size: 1.2rem;
+  color: var(--violet);
+  font-weight: bold;
+}

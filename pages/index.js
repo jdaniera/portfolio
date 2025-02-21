@@ -1,12 +1,20 @@
+'use client'
 import Head from "next/head";
 import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import Intro from "@/components/Intro";
 import ProjectList from "@/components/ProjectList";
 import { projectsData } from "@/data/projectsData";
 import styles from "@/styles/Home.module.css";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import useMediaQuery from "@/hooks/useMediaQuery";
+
 
 export default function Home() {
+  const isMobile = useMediaQuery("(max-width: 840px)");
+
   return (
     <>
       <Head>
@@ -15,53 +23,50 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={styles.page}>
+      <main className={styles.page}>
         {/* Sticky Header */}
-        <Header />
-
+        {/* <Header/> */}
         {/* Intro Section */}
-        <div
+        <section
           className={`${styles.snapSection} ${styles.introSection}`}
           data-section="intro"
         >
-          {/* Gradient Blob */}
+          {/* Gradient Container with two gradient elements
+          <div className={styles.gradientContainer}>
+            <div ref={gradientRef1} className={styles.gradientBackground} />
+            <div ref={gradientRef2} className={styles.gradientBackgroundAlt} />
+          </div> */}
+          <Intro />
+          {/* <figure className={styles.intro__figure}>
+            <Image
+              className="intro__image"
+              src="/images/logo/logo-yellow.svg"
+              alt="Logo for Jasmine Putri's Portfolio"
+              width={isMobile ? 177 : 462}
+              height={isMobile ? 198 : 516}
+              priority
+            />
+          </figure> */}
+
           <div className={styles.blobOuterContainer}>
             <div className={styles.blobInnerContainer}>
-              <div className={styles.blob}></div>
-              <div className={styles.blob}></div>
-              <div className={styles.blob}></div>
+              <div className={`${styles.blob} ${styles.blob1}`}></div>
+              <div className={`${styles.blob} ${styles.blob2}`}></div>
+              <div className={`${styles.blob} ${styles.blob3}`}></div>
             </div>
           </div>
-
-          <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
-          <filter id="grainyFilter">
-            <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="3" stitchTiles="stitch" />
-            <feColorMatrix type="saturate" values="0" />
-            <feComponentTransfer>
-              <feFuncA type="table" tableValues="0 0.1" />
-            </feComponentTransfer>
-            <feBlend mode="screen" in="SourceGraphic" />
-          </filter>
-        </svg>
-
-          {/* Intro Content */} 
-          <Intro />
-          <div className={styles.imgContainer}>
-            <Image
-              src="/images/logo/logo-solid.svg"
-              alt="logo"
-              width={462}
-              height={516}
-              priority
-              className={styles.logo}
-            />
-          </div>
-        </div>
+        </section>
 
         {/* Projects Section */}
-        <div className={`${styles.projectsSection}`} data-section="projects">
-          <ProjectList projects={projectsData} />
-        </div>
+        <section className={`${styles.projectSection}`} data-section="projects">
+          <div className={styles.SectionTitleContainer}>
+            <h2 className={styles.titleTop}>selected</h2>
+            <h2 className={styles.titleBottom}>projects</h2>
+          </div>
+          <article>
+            <ProjectList projects={projectsData} />
+          </article>
+        </section>
 
         {/* Footer Section */}
         {/* <div
@@ -70,7 +75,7 @@ export default function Home() {
         >
           <footer className={styles.footer}>Jasmine Putri </footer>
         </div> */}
-      </div>
+      </main>
     </>
   );
 }
