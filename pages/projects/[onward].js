@@ -89,3 +89,31 @@ export default function Project() {
     </>
   );
 }
+
+export async function getStaticPaths() {
+  const projects = ["onward", "fairshare", "bcitma"]; // Add all project slugs
+
+  return {
+    paths: projects.map((slug) => ({ params: { onward: slug } })),
+    fallback: false, // If user visits an unknown project, show a 404 page
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const projectData = {
+    onward: {
+      title: "Onward Case Study",
+      role: "Developer, User Research",
+      timeline: "Sept 2024 - Dec 2024",
+      tech: ["Next.js", "Azure Speech"],
+      link: "onward-prep.com",
+    },
+  };
+
+  if (!projectData[params.onward]) {
+    return { notFound: true }; // Show 404 if the project doesn't exist
+  }
+
+  return { props: { project: projectData[params.onward] } };
+}
+
