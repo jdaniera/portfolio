@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import Header from "@/components/Header";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import styles from "@/pages/projects/Projects.module.css";
+import styles from "./styles/Projects.module.css";
 import Box from "@/components/Box";
 
 

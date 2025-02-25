@@ -1,0 +1,45 @@
+.container {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    margin: 0 auto; /* Default margin */
+  }
+  
+  /* Section Title */
+  .sectionTitle {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--lavender);
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Features Grid Layout */
+  .featuresGrid {
+    display: flex;
+    justify-content: space-between;
+    gap: 7rem;
+  }
+  
+  /* Feature Card */
+  .featureCard {
+    flex: 1;
+    text-align: left;
+    max-width: 700px;
+  }
+  
+  /* Feature Heading */
+  .featureTitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--violet);
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Feature Description */
+  .featureDescription {
+    font-size: 1rem;
+    color: var(--dark-blue);
+    line-height: 1.5;
+  }
+  
