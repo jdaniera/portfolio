@@ -1,0 +1,75 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Base style for text box */
+.textBox {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.5); /* Dark semi-transparent background */
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+/* Positions */
+.topLeft .textBox {
+    top: 20px;
+    left: 20px;
+}
+
+.topRight .textBox {
+    top: 20px;
+    right: 20px;
+}
+
+.bottomLeft .textBox {
+    bottom: 20px;
+    left: 20px;
+}
+
+.bottomRight .textBox {
+    bottom: 20px;
+    right: 20px;
+}
+
+.center .textBox {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Text styles */
+.title {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.description {
+    margin-top: 10px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Optional: Make text box full width on small screens */
+@media (max-width: 768px) {
+    .textBox {
+        width: calc(100% - 40px);
+        left: 20px !important;
+        right: 20px !important;
+        top: auto !important;
+        bottom: 20px;
+        transform: none !important;
+    }
+}

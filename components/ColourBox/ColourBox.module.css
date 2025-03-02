@@ -1,0 +1,48 @@
+/* Outer container */
+.outer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+/* Inner container */
+.inner {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Colour variants */
+.variantBeige {
+    background-color: #FFF8ED;
+}
+
+.variantLightCream {
+    background-color: #FFFCF1;
+}
+
+.variantWhite {
+    background-color: #FFFEFC;
+}
+
+.variantTaupe {
+    background-color: #EAE6DA;
+}
+
+.variantGrey {
+    background-color: #F7F7F7;
+}
+
+.variantBlack {
+    background-color: #3D3D3D;
+}
+
+/* Optional rounded corners */
+.rounded {
+    border-radius: 20px;
+}
