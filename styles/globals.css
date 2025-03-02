@@ -3,16 +3,27 @@
 
 :root {
   /* COLOURS */
-  --yellow: #FAEAA2;
+  --jasmine: #faeaa2;
   --violet: #5657C0;
-  --dark-blue: #0A0C7E;
+  --royal-blue: #0A0C7E;
+
   --lavender: #BFB2D5;
   --med-lavender: #A083C8;
   --plum: #A80079;
-  --cream: #FEFAE6;
+
+  --beige: #FFF8ED;
   --light-cream: #FFFCF1;
   --white: #FFFEFC;
+  --taupe: #EAE6DA;
+  --grey: #F7F7F7;
+  --black: #3D3D3D;
 
+  --z-header: 500;
+  --z-sideNav: 1000;
+  --z-modal: 1500;
+  --z-tooltip: 2000;
+
+  
 }
 
 * {
@@ -27,9 +38,13 @@ html, body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 1rem; 
   font-weight: 400;
-  color: var(--dark-blue);
+  color: var(--royal-blue);
 }
 
+.gridContainer {
+  grid-template-columns: repeat(4, 1fr); 
+  padding: 0 16px;
+}
 
 @font-face {
   font-family: 'Nyght-Reg';
@@ -75,22 +90,6 @@ html, body {
   font-style: italic;
 }
 
-.name-font-reg {
-  font-family: 'Nyght-Reg-Italic', serif;
-  /* letter-spacing: 0.2rem; */
-}
-
-.name-font-med {
-  font-family: 'Nyght-Med-Italic', serif;
-  /* letter-spacing: 0.2rem; */
-}
-
-.name-font-bold {
-  font-family: 'Nyght-Bold-Italic', serif;
-  /* letter-spacing: 0.2rem; */
-}
-
-
 a {
   color: #3F3A60; /* Link color */
   text-decoration: none; /* Remove underline */
@@ -112,5 +111,24 @@ button {
 
 button:hover {
   background-color: #908ABC; /* Lighter purple on hover */
+}
+
+
+@media (max-width: 768px) {
+    .gridContainer {
+        grid-template-columns: repeat(8, 1fr); /* 8 columns for tablet */
+        padding: 0 20px;
+    }
+}
+
+@media (min-width: 769px) {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    column-gap: 20px;
+    padding: 0 50px;
+    width: 100%;
+  }
+
 }
 
