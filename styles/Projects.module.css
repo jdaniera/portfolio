@@ -1,0 +1,39 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--light-cream);
+}
+
+.fullWidthHero {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
+
+@media (min-width: 768px) {
+    .floatingSideNav {
+        position: sticky;
+        top: 10rem;
+        left: 2rem;
+    }
+    
+    
+    .sideNavMenu p {
+        margin: 1rem 0;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    .projectSummary {
+        margin-top: 10rem;
+        margin-bottom: 12vh;
+        color: var(--royal-blue);
+    }
+    
+    .footer {
+        margin-top: 5rem;
+        text-align: center;
+        font-size: 0.9rem;
+    }
+}    
+
