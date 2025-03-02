@@ -1,0 +1,72 @@
+.outerContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 90vw;
+    margin: 2rem auto;
+    width: 100%;
+  }
+  
+  /* Subtitle Row (optional) */
+  .subtitleRow {
+    display: flex;
+    align-items: center;
+  }
+  
+  .containerSubtitle {
+    font-size: 1rem;
+    color: var(--lavender);
+    font-weight: bold;
+  }
+  
+  /* Main Row: Title + Content */
+  .row {
+    display: flex;
+    flex-direction: column; 
+    gap: 1rem;
+  }
+  
+  .leftColumn {
+    flex: 1;
+    max-width: 200px;
+    text-align: left;
+  }
+  
+  .rightColumn {
+    flex: 1;
+    text-align: left;
+  }
+  
+  /* Typography */
+  .containerTitle {
+    font-size: 1.2rem;
+    color: var(--violet);
+    font-weight: bold;
+  }
+
+  .rightColumn p {
+    margin-bottom: 1rem;
+  }
+
+  /* Larger screens (840px and above) */
+  @media (min-width: 840px) {
+    .row {
+      flex-direction: row;
+      gap: 4rem;
+    }
+  
+    .rightColumn {
+      flex: 3; /* Text gets more space on larger screens */
+    }
+  }
+  
+  /* Compact variant for tighter spacing */
+  .compact {
+    margin: 1rem auto;
+  }
+  
+  @media (min-width: 840px) {
+    .compact .row {
+      gap: 2rem; /* Closer columns in compact mode */
+    }
+  }
+  
