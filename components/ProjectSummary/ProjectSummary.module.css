@@ -1,0 +1,47 @@
+.projectSummary {
+    width: 100%;
+    padding: 4rem 0;
+}
+
+.projectTitle {
+    font-family: Nyght-Med-Italic, serif;
+    font-size: 5rem;
+    color: var(--violet);
+    margin: 0 0 2rem;
+    line-height: 1;
+}
+
+/* 2-column grid for details */
+.detailsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem 4rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.detailItem {
+    display: flex;
+    flex-direction: column;
+    font-size: 1rem;
+    color: var(--dark-blue);
+}
+
+.label {
+    font-weight: bold;
+    color: var(--violet);
+    text-transform: lowercase;
+}
+
+.value a {
+    color: var(--dark-blue);
+    text-decoration: underline;
+}
+
+/* Optional: stack to 1 column on smaller screens */
+@media (max-width: 768px) {
+    .detailsGrid {
+        grid-template-columns: 1fr; /* 1 column on smaller screens */
+    }
+}
