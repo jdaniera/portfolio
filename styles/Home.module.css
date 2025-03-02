@@ -1,6 +1,4 @@
 .page {
-  display: flex;
-  flex-direction: column;
   scroll-snap-type: y mandatory; 
   overflow-y: scroll;
   height: 100vh;
@@ -14,6 +12,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-column: span 16;
 }
 
 .introSection {
@@ -23,16 +22,15 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding-top: clamp(30vh, 33vh, 34vh);
-  background-color: var(--yellow);
+  background-color: var(--jasmine);
+  grid-column: span 16;
 }
-
 
 .introContent {
   height: 100vh;
 }
 
 .projectsSection {
-  background-color: var(--extra-light-lime);
   height: 100vh;
 }
 
@@ -55,7 +53,7 @@
 }
 
 .footerSection {
-  background-color: var(--light-gray);
+  background-color: var(--light-jasmine);
 }
 
 .intro__figure {
@@ -98,6 +96,32 @@
 
 
 @media (min-width: 768px) {
+
+  .projectsSection {
+    grid-column: span 16;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+ }
+
+  .projectsGrid {
+    grid-column: span 16;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    width: 100%;
+    height: 100%;
+  }
+
+  .projectsListContainer {
+    grid-column: 6 / span 15;
+  }
+
+  .SectionTitleContainer {
+    grid-column: 1 / span 3;
+    font-size: 2rem;
+    line-height: 3.5rem;
+    display: flex;
+  }
+
   .imgContainer {
     top: clamp(46%, 48%, 50%);
     left: clamp(50%, 53%, 55%);
@@ -110,11 +134,4 @@
     transition: opacity 0.3s ease;
   }
 
-  .SectionTitleContainer {
-    width: 15vw;
-    margin-left: 50px;
-    top: 15vw;
-    font-size: 2rem;
-    line-height: 3.5rem;
-  }
 }
