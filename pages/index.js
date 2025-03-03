@@ -23,49 +23,28 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.page}>
-        {/* Sticky Header */}
-        {/* <Header/> */}
-        {/* Intro Section */}
+      <main className={`gridContainer ${styles.page}`}>
         <section
           className={`${styles.snapSection} ${styles.introSection}`}
           data-section="intro"
         >
-          {/* Gradient Container with two gradient elements
-          <div className={styles.gradientContainer}>
-            <div ref={gradientRef1} className={styles.gradientBackground} />
-            <div ref={gradientRef2} className={styles.gradientBackgroundAlt} />
-          </div> */}
           <Intro />
-          {/* <figure className={styles.intro__figure}>
-            <Image
-              className="intro__image"
-              src="/images/logo/logo-yellow.svg"
-              alt="Logo for Jasmine Putri's Portfolio"
-              width={isMobile ? 177 : 462}
-              height={isMobile ? 198 : 516}
-              priority
-            />
-          </figure> */}
-
-          <div className={styles.blobOuterContainer}>
-            <div className={styles.blobInnerContainer}>
-              <div className={`${styles.blob} ${styles.blob1}`}></div>
-              <div className={`${styles.blob} ${styles.blob2}`}></div>
-              <div className={`${styles.blob} ${styles.blob3}`}></div>
-            </div>
-          </div>
         </section>
 
         {/* Projects Section */}
-        <section className={`${styles.projectSection}`} data-section="projects">
-          <div className={styles.SectionTitleContainer}>
-            <h2 className={styles.titleTop}>selected</h2>
-            <h2 className={styles.titleBottom}>projects</h2>
+        <section className={styles.projectsSection} data-section="projects">
+          <div className={styles.projectsGrid}>
+            {/* Left side section title */}
+            <div className={styles.projectsTitle}>
+              <h2 className={styles.titleTop}>selected</h2>
+              <h2 className={styles.titleBottom}>projects</h2>
+            </div>
+
+          {/* Right side project list */}
+          <article className={styles.projectsListContainer}>
+              <ProjectList projects={projectsData} />
+            </article>
           </div>
-          <article>
-            <ProjectList projects={projectsData} />
-          </article>
         </section>
 
         {/* Footer Section */}
