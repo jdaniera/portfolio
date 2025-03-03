@@ -7,8 +7,6 @@ import SectionTextBox from "../SectionText";
 import FramedBox from "../FramedBox";
 import TwoColBox from "../TwoColBox";
 import SideNav from "../SideNav";
-import TextOnImg from "../TextOnImg";
-import FullWidth from "../FullWidth";
 import styles from "@/styles/Projects.module.css";
 
 export default function NeighbourlyProject() {
@@ -22,7 +20,7 @@ export default function NeighbourlyProject() {
 			</Head>
 
 			<div className={styles.page}>
-				{/* Header */}
+
 				<Header />
 
 				{/* Floating Side Nav */}
