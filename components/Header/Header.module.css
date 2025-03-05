@@ -18,6 +18,10 @@
     background-color: #fff;
   }
 
+.header button {
+    border: none;
+}
+
 @media (min-width: 840px) {
     .header {
         position: sticky;

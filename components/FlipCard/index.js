@@ -4,14 +4,11 @@ import clsx from "clsx";
 
 const FlipCard = ({
   title,
-  subtitle = "",
   description,
-  buttonText,
-  onButtonClick,
   frontImage = null,
   backImage = null,
   imageAlt = "Image",
-  customStyles = {},  // Optional: allows passing outer styles like margin
+  customStyles = {},
 }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -26,61 +23,19 @@ const FlipCard = ({
       onClick={handleFlip}
     >
       <div className={styles.flipCardInner}>
-        {/* Front Side */}
+        {/* Front Side (title + tap message) */}
         <div className={clsx(styles.flipCardFace, styles.frontFace)}>
-          {frontImage && (
-            <div className={styles.imageWrapper}>
-              <img src={frontImage} alt={imageAlt} className={styles.image} />
-            </div>
-          )}
-
           <div className={styles.contentWrapper}>
-            {subtitle && (
-              <div className={styles.subtitleRow}>
-                <div className={styles.leftColumn}>
-                  <p className={styles.containerSubtitle}>{subtitle}</p>
-                </div>
-                <div className={styles.rightColumn}></div>
-              </div>
-            )}
-
-            <div className={styles.row}>
-              <div className={styles.leftColumn}>
-                <h2 className={styles.containerTitle}>{title}</h2>
-              </div>
-              <div className={styles.rightColumn}>
-                <p className={styles.description}>{description}</p>
-              </div>
-            </div>
+            <h2 className={styles.containerTitle}>{title}</h2>
+            <p className={styles.tapMessage}>Tap to learn more</p>
           </div>
         </div>
 
-        {/* Back Side */}
+        {/* Back Side (smaller title + description) */}
         <div className={clsx(styles.flipCardFace, styles.backFace)}>
-          {backImage && (
-            <div className={styles.imageWrapper}>
-              <img src={backImage} alt={imageAlt} className={styles.image} />
-            </div>
-          )}
-
           <div className={styles.contentWrapper}>
-            <div className={styles.row}>
-              <div className={styles.leftColumn}>
-                <h2 className={styles.containerTitle}>{title}</h2>
-              </div>
-              <div className={styles.rightColumn}>
-                <p className={styles.description}>Want to know more?</p>
-                <button
-                  className={styles.button}
-                  onClick={(e) => {
-                    e.stopPropagation();  // Prevent flip on button click
-                    onButtonClick();
-                  }}
-                >
-                  {buttonText}
-                </button>
-              </div>
-            </div>
+            <h3 className={styles.backTitle}>{title}</h3>
+            <p className={styles.description}>{description}</p>
           </div>
         </div>
       </div>

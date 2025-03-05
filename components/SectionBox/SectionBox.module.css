@@ -1,0 +1,42 @@
+.outerContainer {
+    width: 100%;
+}
+
+.sectionBox {
+    display: grid;
+    gap: 16px;
+    padding: 32px;
+}
+
+.columns-1 { --current-columns: 1; }
+.columns-2 { --current-columns: 2; }
+.columns-3 { --current-columns: 3; }
+
+.framed {
+    border: 1px solid var(--border-color);
+    padding: 24px;
+}
+
+.rounded {
+    border-radius: 16px;
+}
+
+.padding-medium {
+    padding: 32px;
+}
+
+.padding-large {
+    padding: 64px;
+}
+
+@media (min-width: 600px) {
+    .sectionBox {
+        --current-columns: var(--tablet-columns);
+    }
+}
+
+@media (min-width: 840px) {
+    .sectionBox {
+        --current-columns: var(--desktop-columns);
+    }
+}

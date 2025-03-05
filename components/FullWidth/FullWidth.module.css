@@ -1,8 +1,4 @@
 .fullWidthSection {
-    position: relative;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 60px 20px;  /* You can control top/bottom padding */
-    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }

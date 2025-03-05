@@ -1,46 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import styles from './SideNav.module.css';
 
+
 export default function SideNav({ sections = [] }) {
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [activeSection, setActiveSection] = useState(sections[0]?.id || '');
-    const [isHovered, setIsHovered] = useState(false);
+    const [isHovered, setIsHovered] = useState(false); // NEW: hover state
 
     useEffect(() => {
         const handleScroll = () => {
             setIsCollapsed(window.scrollY > window.innerHeight);
         };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    // Use IntersectionObserver to detect which section is in view
-    useEffect(() => {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: [0.2, 0.5, 0.8]  // Detect when 20%, 50%, 80% of the section is visible
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setActiveSection(entry.target.id);
+        const handleSectionHighlight = () => {
+            let currentSection = sections[0]?.id || '';
+            sections.forEach(({ id }) => {
+                const sectionElement = document.getElementById(id);
+                if (sectionElement) {
+                    const rect = sectionElement.getBoundingClientRect();
+                    if (rect.top <= 150 && rect.bottom >= 150) {
+                        currentSection = id;
+                    }
                 }
             });
-        }, observerOptions);
+            setActiveSection(currentSection);
+        };
 
-        sections.forEach(({ id }) => {
-            const section = document.getElementById(id);
-            if (section) observer.observe(section);
-        });
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleSectionHighlight);
 
         return () => {
-            sections.forEach(({ id }) => {
-                const section = document.getElementById(id);
-                if (section) observer.unobserve(section);
-            });
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', handleSectionHighlight);
         };
     }, [sections]);
 
@@ -63,6 +54,7 @@ export default function SideNav({ sections = [] }) {
                     className={styles.navItem}
                     onClick={() => scrollToSection(id)}
                 >
+                    {/* Only show text if either it's not collapsed OR user is hovering */}
                     {(!isCollapsed || isHovered) && <p>{name}</p>}
                     <div className={`${styles.dot} ${activeSection === id ? styles.activeDot : ''}`} />
                 </div>

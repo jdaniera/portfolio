@@ -1,134 +1,181 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900,i');
-@import url('https://fonts.cdnfonts.com/css/source-sans-pro');
+@import url("https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900,i");
+@import url("https://fonts.cdnfonts.com/css/source-sans-pro");
 
 :root {
-  /* COLOURS */
-  --jasmine: #faeaa2;
-  --violet: #5657c0;
-  --royal-blue: #0A0C7E;
+	/* COLOURS */
+	--jasmine: #faeaa2;
+	--violet: #5657c0;
+	--royal-blue: #0a0c7e;
 
-  --lavender: #BFB2D5;
-  --med-lavender: #A083C8;
-  --plum: #A80079;
+	--lavender: #bfb2d5;
+	--med-lavender: #a083c8;
+	--plum: #a80079;
 
-  --beige: #FFF8ED;
-  --light-cream: #FFFCF1;
-  --white: #FFFEFC;
-  --taupe: #EAE6DA;
-  --grey: #F7F7F7;
-  --black: #3D3D3D;
+	--light-lavender: #f1e9ff;
+	--vanilla:rgb(255, 244, 199);
+	--beige: #fff8ed;
+	--light-cream: #fffcf1;
+	--white: #fffefc;
+	--taupe: #eae6da;
+	--grey: #f7f7f7;
+	--black: #3d3d3d;
 
-  --z-header: 500;
-  --z-sideNav: 1000;
-  --z-modal: 1500;
-  --z-tooltip: 2000;
+	--z-header: 500;
+	--z-sideNav: 1000;
+	--z-modal: 1500;
+	--z-tooltip: 2000;
+}
 
-  
+@font-face {
+	font-family: "Nyght-Reg";
+	src: url("/fonts/NyghtSerif-Regular.woff2") format("woff2"),
+		url("/fonts/NyghtSerif-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+	letter-spacing: 3em;
+}
+
+@font-face {
+	font-family: "Nyght-Reg-Italic";
+	src: url("/fonts/NyghtSerif-RegularItalic.woff2") format("woff2"),
+		url("/fonts/NyghtSerif-RegularItalic.woff") format("woff");
+	font-weight: normal;
+	font-style: italic;
+	letter-spacing: 3em;
+}
+
+@font-face {
+	font-family: "Nyght-Med-Italic";
+	src: url("/fonts/NyghtSerif-MediumItalic.woff2") format("woff2"),
+		url("/fonts/NyghtSerif-MediumItalic.woff") format("woff");
+	font-weight: medium;
+	font-style: italic;
+	letter-spacing: 3em;
+}
+
+@font-face {
+	font-family: "Nyght-Bold";
+	src: url("/fonts/NyghtSerif-Bold.woff2") format("woff2"),
+		url("/fonts/NyghtSerif-Bold.woff") format("woff");
+	font-weight: bold;
+	font-style: normal;
+	letter-spacing: 3em;
+}
+
+@font-face {
+	font-family: "Nyght-Bold-Italic";
+	src: url("/fonts/NyghtSerif-BoldItalic.woff2") format("woff2"),
+		url("/fonts/NyghtSerif-BoldItalic.woff") format("woff");
+	font-weight: bold;
+	font-style: italic;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1rem; 
-  font-weight: 400;
-  color: var(--royal-blue);
+html,
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Source Sans Pro", sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+	color: var(--royal-blue);
 }
 
 .gridContainer {
-  grid-template-columns: repeat(4, 1fr); 
-  padding: 0 16px;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 16px;
 }
 
-@font-face {
-  font-family: 'Nyght-Reg';
-  src: url('/fonts/NyghtSerif-Regular.woff2') format('woff2'),
-       url('/fonts/NyghtSerif-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  letter-spacing: 3em;
+.sectionSpacing {
+	margin-top: 4rem; /* Default medium spacing on mobile */
+	margin-bottom: 4rem;
 }
 
-@font-face {
-  font-family: 'Nyght-Reg-Italic';
-  src: url('/fonts/NyghtSerif-RegularItalic.woff2') format('woff2'),
-       url('/fonts/NyghtSerif-RegularItalic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-  letter-spacing: 3em;
+.sectionSpacing--small {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
-@font-face {
-  font-family: 'Nyght-Med-Italic';
-  src: url('/fonts/NyghtSerif-MediumItalic.woff2') format('woff2'),
-       url('/fonts/NyghtSerif-MediumItalic.woff') format('woff');
-  font-weight: medium;
-  font-style: italic;
-  letter-spacing: 3em;
+.sectionSpacing--medium {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
 }
 
-@font-face {
-  font-family: 'Nyght-Bold';
-  src: url('/fonts/NyghtSerif-Bold.woff2') format('woff2'),
-       url('/fonts/NyghtSerif-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  letter-spacing: 3em;
+.sectionSpacing--large {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
 }
 
-@font-face {
-  font-family: 'Nyght-Bold-Italic';
-  src: url('/fonts/NyghtSerif-BoldItalic.woff2') format('woff2'),
-       url('/fonts/NyghtSerif-BoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
+.sectionSpacing--xlarge {
+	margin-top: 6rem;
+	margin-bottom: 6rem;
 }
 
 a {
-  color: #3F3A60; /* Link color */
-  text-decoration: none; /* Remove underline */
+	color: #3f3a60;
+	text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline; /* Add underline when hovering */
+	text-decoration: underline;
 }
 
 button {
-  font-family: inherit; /* Use the same font as the page */
-  background-color: #5B548D; /* Purple button */
-  color: white; /* White text */
-  border: none; /* No borders */
-  padding: 10px 20px; /* Space inside the button */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer when hovering */
+	font-family: inherit;
+	background-color: #5b548d;
+	color: white;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 button:hover {
-  background-color: #908ABC; /* Lighter purple on hover */
+	background-color: #908abc; /* Lighter purple on hover */
 }
 
+@media (min-width: 600px) {
+	.gridContainer {
+		grid-template-columns: repeat(8, 1fr);
+	}
 
-@media (max-width: 768px) {
-    .gridContainer {
-        grid-template-columns: repeat(8, 1fr); /* 8 columns for tablet */
-        padding: 0 20px;
-    }
+	.sectionSpacing {
+		margin-top: 6rem;
+		margin-bottom: 6rem;
+	}
+
+	.sectionSpacing--small {
+		margin-top: 2rem;
+		margin-bottom: 2rem;
+	}
+
+	.sectionSpacing--medium {
+		margin-top: 4rem;
+		margin-bottom: 4rem;
+	}
+
+	.sectionSpacing--large {
+		margin-top: 6rem;
+		margin-bottom: 6rem;
+	}
+
+	.sectionSpacing--xlarge {
+		margin-top: 8rem;
+		margin-bottom: 8rem;
+	}
 }
 
-@media (min-width: 769px) {
-  .gridContainer {
-    display: grid;
-    grid-template-columns: repeat(16, 1fr);
-    column-gap: 20px;
-    padding: 0 50px;
-    width: 100%;
-  }
-
+@media (min-width: 840px) {
+	.gridContainer {
+		display: grid;
+		grid-template-columns: repeat(16, 1fr);
+		gap: 20px;
+		max-width: calc(100% - 100px);
+		margin: 0 auto;
+	}
 }
-

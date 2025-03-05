@@ -1,46 +1,121 @@
 .featureBox {
-  width: 100%;
-  max-width: 1200px;
-  margin: 5rem auto;
-  text-align: left;
-  padding: 1rem;
+	width: 100%;
+	padding: 1rem 0;
 }
 
-.sectionTitle {
-  font-size: 1rem;
-  color: var(--lavender);
-  font-weight: bold;
-}
-
-/* Dynamic Grid - Number of columns matches feature count */
+/* Default mobile: 1 column */
 .dynamicGrid {
-  display: grid;
-  gap: 1.5rem;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 1fr;
+}
+
+/* Column Layout */
+.columnLayout {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.columnLayout_left {
+	justify-content: flex-start; 
+}
+
+.columnLayout_center {
+	justify-content: center;
+}
+
+.columnLayout_right {
+	justify-content: flex-end;
+}
+
+.featureSectionTitle {
+	color: var(--lavender);
+	font-size: 1rem;
+	margin-bottom: 0.5rem;
 }
 
 /* Feature card styling */
 .featureCard {
-  background-color: var(--grey);
-  padding: 1.5rem;
-  border-radius: 20px;
-  transition: transform 0.3s ease;
-  text-align: left;
+	background-color: transparent;
+	padding: 1.5rem;
+	border-radius: 20px;
+	transition: transform 0.3s ease;
+	text-align: left;
 }
 
 .featureCard:hover {
-  transform: translateY(-4px);
+	transform: translateY(-4px);
 }
 
 .featureTitle {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: var(--violet);
+	font-size: 1.25rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	color: var(--violet);
 }
 
 .featureDescription {
-  font-size: 1rem;
-  color: var(--black);
-  line-height: 1.5;
-  margin-top: 0.5rem;
+	font-size: 1rem;
+	color: var(--black);
+	line-height: 1.5;
+	margin-top: 0.5rem;
+}
+
+/* Horizontal Alignments */
+.items-align-left {
+    justify-items: start;
+    text-align: left;
+}
+
+.items-align-center {
+    justify-items: center;
+    text-align: center;
+}
+
+.items-align-right {
+    justify-items: end;
+    text-align: right;
+}
+
+/* Vertical Alignments */
+.items-align-top {
+    align-items: start;
+}
+
+.items-align-center {
+    align-items: center;
+}
+
+.items-align-bottom {
+    align-items: end;
+}
+
+@media (min-width: 600px) {
+	.dynamicGrid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.columnLayout.stacked {
+		gap: 2rem;
+	}
+}
+
+@media (min-width: 840px) {
+	.dynamicGrid {
+		grid-template-columns: repeat(
+			auto-fit,
+			minmax(250px, 1fr)
+		);
+	}
+
+	.featureBox.compact {
+		margin: 1rem 0;
+		padding: 1rem;
+	}
+
+	.featureBox.spacious {
+		margin: 5rem 0;
+		padding: 2rem 0;
+	}
 }

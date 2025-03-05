@@ -1,0 +1,46 @@
+.sectionContainer {
+	width: 100%;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+}
+
+.sectionContainer.fullWidth {
+	width: 100vw;
+	margin-left: calc(-50vw + 50%);
+}
+
+/* Inner content stays inside grid width */
+.content {
+	width: 100%;
+	max-width: 1200px; /* Matches your grid max width */
+	padding: 0 1rem; /* Safe padding on edges */
+}
+
+/* Mobile-first spacing */
+.spacing-small {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+}
+
+.spacing-medium {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+}
+
+.spacing-large {
+	padding-top: 6rem;
+	padding-bottom: 6rem;
+}
+
+.spacing-xlarge {
+	padding-top: 8rem;
+	padding-bottom: 8rem;
+}
+
+/* Optional - adjust content width on larger screens */
+@media (min-width: 600px) {
+	.content {
+		padding: 0 2rem;
+	}
+}

@@ -48,6 +48,25 @@
   color: var(--violet);
 }
 
+.stacked {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
+}
+
+.compact {
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.spacious {
+  padding: 2rem;
+  margin-bottom: 4rem;
+}
+
 .titleBottom {
   align-self: flex-end;
 }

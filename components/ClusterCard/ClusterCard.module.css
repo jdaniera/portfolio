@@ -1,0 +1,39 @@
+.card {
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-bottom: 16px;
+    background-color: white;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.cardTitle {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 4px 0;
+    color: #333;
+}
+
+.cardDescription {
+    font-size: 14px;
+    margin: 0;
+    color: #555;
+}
+
+/* Common Challenge Styling */
+.commonCard {
+    background-color: #f0f7ff; /* Light blue */
+    border: 1px solid #cce4ff;
+}
+
+/* IEN-specific Challenge Styling */
+.ienCard {
+    background-color: #fff6e5; /* Light orange */
+    border: 1px solid #ffd699;
+}
+
+/* Optional: Add responsive tweaks if needed */

@@ -1,8 +1,8 @@
 .container {
     position: relative;
     width: 100%;
-    height: 500px;
-    overflow: hidden;
+    height: 50vh;
+    min-height: 300px;
 }
 
 .image {
@@ -63,13 +63,15 @@
 }
 
 /* Optional: Make text box full width on small screens */
-@media (max-width: 768px) {
+@media (max-width: 840px) {
     .textBox {
-        width: calc(100% - 40px);
-        left: 20px !important;
-        right: 20px !important;
+        width: calc(100% - 2rem);
+        left: 1rem !important;
+        right: 1rem !important;
+        bottom: 1rem !important;
         top: auto !important;
-        bottom: 20px;
         transform: none !important;
+        max-width: none;
+        border-radius: 0.5rem;
     }
 }
