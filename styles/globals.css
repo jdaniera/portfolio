@@ -7,12 +7,12 @@
 	--violet: #5657c0;
 	--royal-blue: #0a0c7e;
 
-	--lavender: #bfb2d5;
+	--lavender: #baabd5;
 	--med-lavender: #a083c8;
 	--plum: #a80079;
 
-	--light-lavender: #f1e9ff;
-	--vanilla:rgb(255, 244, 199);
+	--light-lavender: #F9F8FF;
+	--vanilla: #fff9e1;
 	--beige: #fff8ed;
 	--light-cream: #fffcf1;
 	--white: #fffefc;
@@ -92,31 +92,6 @@ body {
 	gap: 16px;
 }
 
-.sectionSpacing {
-	margin-top: 4rem; /* Default medium spacing on mobile */
-	margin-bottom: 4rem;
-}
-
-.sectionSpacing--small {
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-}
-
-.sectionSpacing--medium {
-	margin-top: 2rem;
-	margin-bottom: 2rem;
-}
-
-.sectionSpacing--large {
-	margin-top: 4rem;
-	margin-bottom: 4rem;
-}
-
-.sectionSpacing--xlarge {
-	margin-top: 6rem;
-	margin-bottom: 6rem;
-}
-
 a {
 	color: #3f3a60;
 	text-decoration: none;
@@ -144,29 +119,30 @@ button:hover {
 		grid-template-columns: repeat(8, 1fr);
 	}
 
+
 	.sectionSpacing {
-		margin-top: 6rem;
-		margin-bottom: 6rem;
+		margin-top: 1.5rem;
+		margin-bottom: 1.5rem;
 	}
 
 	.sectionSpacing--small {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+	}
+
+	.sectionSpacing--medium {
 		margin-top: 2rem;
 		margin-bottom: 2rem;
 	}
 
-	.sectionSpacing--medium {
+	.sectionSpacing--large {
 		margin-top: 4rem;
 		margin-bottom: 4rem;
 	}
 
-	.sectionSpacing--large {
+	.sectionSpacing--xlarge {
 		margin-top: 6rem;
 		margin-bottom: 6rem;
-	}
-
-	.sectionSpacing--xlarge {
-		margin-top: 8rem;
-		margin-bottom: 8rem;
 	}
 }
 

@@ -1,55 +1,194 @@
 .page {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--light-cream);
+	display: flex;
+	flex-direction: column;
+	background-color: var(--light-cream);
 }
 
 .fullWidthHero {
-    width: 100vw;
-    margin: 0;
-    padding: 0;
+	width: 100vw;
+	margin: 0;
+	padding: 0;
+}
+
+.imageGallery {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 /* Add this to your project CSS file */
 
 .list {
-    padding-left: 2rem;  
-    margin-top: 1.2rem;    
-    margin-bottom: 1.2rem;
-    list-style-type: disc;
+	padding-left: 2rem;
+	margin-top: 1.2rem;
+	margin-bottom: 1.2rem;
+	list-style-type: disc;
 }
 
 .list li {
-    margin-bottom: 12px;  
-    line-height: 1.1;
+	margin-bottom: 12px;
+	line-height: 1.1;
+}
+
+/* Base Styles (Mobile First) */
+.sectionSpacing--large {
+	padding: 2rem 2rem;
+}
+
+.sectionSpacing--medium {
+	padding: 1rem 1rem;
+}
+
+.sectionSpacing--small {
+	padding: 0.6rem 0.6rem;
+}
+
+.responsiveImage {
+	width: 100%;
+	height: auto;
+	margin-top: 1rem;
+}
+
+/* For video elements that need full width */
+.fullWidthMedia {
+	width: 100%;
+	border-radius: 12px;
+	margin-top: 1rem;
+}
+
+/* Grid for personas - stack by default */
+.personaGrid {
+	display: grid;
+	gap: 1rem;
+}
+
+/* Table wrapper to allow horizontal scrolling on small screens */
+.tableWrapper {
+	overflow-x: auto;
+	width: 100%;
+}
+
+/* Competitor Analysis Table */
+.competitorTable {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+	background-color: var(--vanilla);
+}
+
+.competitorTable th,
+.competitorTable td {
+	padding: 1rem;
+	border: 1px solid var(--light-grey);
+	text-align: left;
+	font-size: 0.875rem;
+	vertical-align: top;
+	border: 1px solid var(--dark-grey) !important;
+}
+
+.competitorTable tr:nth-child(even) {
+	background-color: var(--light-cream);
+}
+
+.competitorTable th {
+	background-color: var(--grey);
+	color: var(--violet);
+	font-weight: bold;
+}
+
+.competitorLogo img {
+	height: 40px;
+	width: auto;
+	max-width: 100%;
+	object-fit: contain;
+	display: block;
+}
+
+/* Tablet and Up */
+@media (min-width: 600px) {
+	.sectionSpacing--large {
+		padding: 3rem 3rem;
+	}
+
+	.sectionSpacing--medium {
+		padding: 2rem 2rem;
+	}
+
+	.sectionSpacing--small {
+		padding: 1rem 1rem;
+	}
 }
 
 @media (min-width: 600px) {
 }
 
 @media (min-width: 840px) {
-    .floatingSideNav {
-        position: sticky;
-        top: 10rem;
-        left: 2rem;
-    }
-    
-    .sideNavMenu p {
-        margin: 1rem 0;
-        font-weight: bold;
-        cursor: pointer;
-    }
+	.floatingSideNav {
+		position: sticky;
+		top: 10rem;
+		left: 2rem;
+	}
 
-    .projectSummary {
-        margin-top: 10rem;
-        margin-bottom: 12vh;
-        color: var(--royal-blue);
-    }
-    
-    .footer {
-        margin-top: 5rem;
-        text-align: center;
-        font-size: 0.9rem;
-    }
-}    
+	.sideNavMenu p {
+		margin: 1rem 0;
+		font-weight: bold;
+		cursor: pointer;
+	}
 
+	.projectSummary {
+		margin-top: 10rem;
+		margin-bottom: 12vh;
+		color: var(--royal-blue);
+	}
+
+	.imageGallery {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.personaContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		align-items: center;
+		width: 100%;
+	}
+
+	.personaImage {
+		width: 100%;
+		max-width: 900px;
+		height: auto;
+		object-fit: contain;
+	}
+
+	.competitorTable th,
+	.competitorTable td {
+		padding: 1.5rem;
+		font-size: 1rem;
+	}
+
+	.personaContainer {
+		flex-direction: row;
+		justify-content: center;
+		align-items: flex-start;
+	}
+
+	.personaImage {
+		width: 100%;
+	}
+
+	.competitorTable img {
+		width: 100%;
+		max-width: 150px;
+		height: auto;
+		object-fit: contain;
+	}
+
+	.embeddedFigma {
+		width: 100%;
+		height: 30rem;
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		border-radius: 8px;
+		margin-top: 1rem;
+	}
+}

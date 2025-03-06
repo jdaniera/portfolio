@@ -19,28 +19,48 @@
 
 /* Mobile-first spacing */
 .spacing-small {
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.spacing-medium {
 	padding-top: 2rem;
 	padding-bottom: 2rem;
 }
 
-.spacing-medium {
-	padding-top: 4rem;
-	padding-bottom: 4rem;
-}
-
 .spacing-large {
-	padding-top: 6rem;
-	padding-bottom: 6rem;
+	padding-top: 3rem;
+	padding-bottom: 3rem;
 }
 
 .spacing-xlarge {
-	padding-top: 8rem;
-	padding-bottom: 8rem;
+	padding-top: 4rem;
+	padding-bottom: 4rem;
 }
 
 /* Optional - adjust content width on larger screens */
 @media (min-width: 600px) {
 	.content {
 		padding: 0 2rem;
+	}
+
+	.spacing-small {
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+	}
+	
+	.spacing-medium {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+	
+	.spacing-large {
+		padding-top: 3rem;
+		padding-bottom: 3rem;
+	}
+	
+	.spacing-xlarge {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
 	}
 }

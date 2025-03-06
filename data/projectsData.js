@@ -5,7 +5,7 @@ export const projectsData = [
 		tag: "case study",
 		image: "/images/onward/transcription.png",
 		summary:
-			"Conducted user research and built a mock interview web-app using Next.js and Chakra UI",
+			"A mock interview web-app",
 		overview: [
 			{ label: "role", value: "UX Researcher, Developer" },
 			{ label: "timeline", value: "January 2024 — May 2024" },
@@ -16,7 +16,7 @@ export const projectsData = [
 				label: "link",
 				value: (
 					<a
-						href="https://onward-app.com"
+						href="https://onward-prep.ca/"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -46,7 +46,7 @@ export const projectsData = [
 		slug: "neighbourly",
 		title: "Neighbourly",
 		image: "/images/neighbourly/homepage.webp",
-		summary: "Designed a community-based service marketplace mobile app",
+		summary: "A community-based service marketplace mobile app",
 		overview: [
 			{ label: "role", value: "UI/UX Designer, Front-end Developer" },
 			{ label: "timeline", value: "January 2024 — May 2024" },
@@ -57,7 +57,7 @@ export const projectsData = [
 				label: "link",
 				value: (
 					<a
-						href="https://be-neighbourly.com"
+						href="neighbourly-beryl.vercel.app"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -71,7 +71,7 @@ export const projectsData = [
 	{
 		slug: "ode-to",
 		title: "Ode To...",
-		image: "/images/neighbourly/homepage.webp",
+		image: "/images/ode-to/3-cans.webp",
 		summary: "A canned mocktail beverage line.",
 		overview: [
 			{ label: "role", value: "Graphic Designer" },
