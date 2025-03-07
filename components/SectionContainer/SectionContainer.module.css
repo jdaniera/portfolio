@@ -14,7 +14,6 @@
 .content {
 	width: 100%;
 	max-width: 1200px; /* Matches your grid max width */
-	padding: 0 1rem; /* Safe padding on edges */
 }
 
 /* Mobile-first spacing */
@@ -41,7 +40,7 @@
 /* Optional - adjust content width on larger screens */
 @media (min-width: 600px) {
 	.content {
-		padding: 0 2rem;
+		padding: 2rem 0;
 	}
 
 	.spacing-small {

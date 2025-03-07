@@ -7,13 +7,13 @@
 	--violet: #5657c0;
 	--royal-blue: #0a0c7e;
 
-	--lavender: #baabd5;
+	--lavender: #6C649E;
 	--med-lavender: #a083c8;
 	--plum: #a80079;
 
 	--light-lavender: #F9F8FF;
 	--vanilla: #fff9e1;
-	--beige: #fff8ed;
+	--beige: #fdfaf3;
 	--light-cream: #fffcf1;
 	--white: #fffefc;
 	--taupe: #eae6da;
@@ -90,6 +90,10 @@ body {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 16px;
+}
+
+ul {
+	padding: 1rem 0 1rem 2rem;
 }
 
 a {

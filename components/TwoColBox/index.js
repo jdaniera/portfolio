@@ -9,6 +9,7 @@ export default function TwoColBox({
 	align = "top",
 	justify = "left",
 	customStyles = {},
+	gap = "0"
 }) {
 	return (
 		<div
@@ -17,6 +18,7 @@ export default function TwoColBox({
 				...customStyles.outer,
 				maxWidth: customStyles.outer?.maxWidth || "1200px",
 				margin: "0 auto",
+				gap: gap
 			}}
 		>
 			{/* Left Column */}

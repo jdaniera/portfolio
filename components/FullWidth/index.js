@@ -9,7 +9,7 @@ export default function FullWidth({ children, backgroundColor = "transparent" })
             style={{ backgroundColor, width: "100vw", padding: 0, margin: 0 }}
         >
             <div className="gridContainer">
-                <div style={{ gridColumn: "2 / span 14", padding: "4rem 0" }}>
+                <div style={{ gridColumn: "3 / 15", padding: "4rem 0" }}>
                     {children}
                 </div>
             </div>

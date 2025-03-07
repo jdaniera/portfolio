@@ -1,121 +1,80 @@
 .featureBox {
 	width: 100%;
-	padding: 1rem 0;
+	padding: 1rem;
 }
 
-/* Default mobile: 1 column */
-.dynamicGrid {
-	display: grid;
-	gap: 1rem;
-	grid-template-columns: 1fr;
-}
-
-/* Column Layout */
-.columnLayout {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-}
-
-.columnLayout_left {
-	justify-content: flex-start; 
-}
-
-.columnLayout_center {
-	justify-content: center;
-}
-
-.columnLayout_right {
-	justify-content: flex-end;
-}
-
-.featureSectionTitle {
-	color: var(--lavender);
-	font-size: 1rem;
-	margin-bottom: 0.5rem;
-}
-
-/* Feature card styling */
 .featureCard {
-	background-color: transparent;
 	padding: 1.5rem;
-	border-radius: 20px;
-	transition: transform 0.3s ease;
-	text-align: left;
+	margin: 1rem;
+	border-radius: 8px;
+	background-color: var(--light-cream);
+	transition: transform 0.3s ease; /* Smooth transition */
 }
 
 .featureCard:hover {
-	transform: translateY(-4px);
+	transform: scale(1.1);
 }
 
-.featureTitle {
-	font-size: 1.25rem;
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-	color: var(--violet);
+/* Column Layout - Mobile default (stacked) */
+.columnLayout,
+.smallLayout,
+.mediumLayout,
+.largeLayout {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
-.featureDescription {
-	font-size: 1rem;
-	color: var(--black);
-	line-height: 1.5;
-	margin-top: 0.5rem;
+/* For small stacked cards (mobile default) */
+.smallGridLayout {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
-/* Horizontal Alignments */
-.items-align-left {
-    justify-items: start;
-    text-align: left;
+/* Medium & Large - Centered on mobile */
+.mediumLayout .featureCard,
+.largeLayout .featureCard {
+	width: 90%;
+	margin: 0 auto;
 }
 
-.items-align-center {
-    justify-items: center;
-    text-align: center;
-}
-
-.items-align-right {
-    justify-items: end;
-    text-align: right;
-}
-
-/* Vertical Alignments */
-.items-align-top {
-    align-items: start;
-}
-
-.items-align-center {
-    align-items: center;
-}
-
-.items-align-bottom {
-    align-items: end;
+.smallTitle {
+	font-size: 1.15rem;
+	color: var(--lavender);
 }
 
 @media (min-width: 600px) {
-	.dynamicGrid {
+	.featureBox {
+		padding: 2rem;
+	}
+
+	.smallGridLayout {
+		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 	}
 
-	.columnLayout.stacked {
-		gap: 2rem;
+	.mediumLayout .featureCard {
+		width: 80%;
 	}
 }
 
 @media (min-width: 840px) {
-	.dynamicGrid {
-		grid-template-columns: repeat(
-			auto-fit,
-			minmax(250px, 1fr)
-		);
+	.featureBox {
+		padding: 1rem 0 5rem 0;
 	}
 
-	.featureBox.compact {
-		margin: 1rem 0;
-		padding: 1rem;
+	.smallGridLayout {
+		grid-template-columns: repeat(3, 1fr);
 	}
 
-	.featureBox.spacious {
-		margin: 5rem 0;
-		padding: 2rem 0;
+	.mediumLayout .featureCard {
+		width: 70%;
+		max-width: 600px;
+	}
+
+	.largeLayout .featureCard {
+		width: 100%;
+		max-width: 900px;
 	}
 }

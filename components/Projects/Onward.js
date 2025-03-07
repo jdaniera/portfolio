@@ -10,6 +10,8 @@ import FeatureBox from "../FeatureBox";
 import FullWidth from "../FullWidth";
 import SideNav from "../SideNav";
 import styles from "@/styles/Projects.module.css";
+import TwoColBox from "../TwoColBox";
+import ResponsiveSection from "../ResponsiveSection";
 
 export default function OnwardProject() {
 	const isMobile = useMediaQuery("(max-width: 840px)");
@@ -86,9 +88,8 @@ export default function OnwardProject() {
 					className={styles.floatingSideNav}
 					sections={[
 						{ name: "Overview", id: "overview" },
+						{ name: "Research", id: "research" },
 						{ name: "Solution", id: "solution" },
-						{ name: "Persona", id: "persona" },
-						{ name: "Competitive Analysis", id: "competitor-analysis" },
 						{ name: "Design & Branding", id: "design" },
 						{ name: "Development", id: "development" },
 					]}
@@ -98,10 +99,10 @@ export default function OnwardProject() {
 					{/* Overview Section */}
 					<div
 						className="sectionSpacing--medium"
-						style={{ gridColumn: "4 / span 10" }}
+						style={{ gridColumn: "3 / 15" }}
 						id="overview"
 					>
-						<SectionContainer padding="large">
+						<SectionContainer>
 							<ProjectSummary
 								title="Onward"
 								details={[
@@ -128,7 +129,7 @@ export default function OnwardProject() {
 								]}
 							/>
 						</SectionContainer>
-						<SectionContainer padding="small">
+						<SectionContainer>
 							<SectionTextBox title="What is Onward?" subtitle="Overview">
 								<p>
 									Onward helps Internationally Educated Nurses (IENs)
@@ -145,7 +146,7 @@ export default function OnwardProject() {
 					</div>
 					<div
 						className="sectionSpacing--medium"
-						style={{ gridColumn: "2 / span 14" }}
+						style={{ gridColumn: "span 16" }}
 					>
 						<Image
 							src="/images/onward/transcription.png"
@@ -160,7 +161,7 @@ export default function OnwardProject() {
 					<div
 						id="ideation"
 						className="sectionSpacing--medium"
-						style={{ gridColumn: "4 / span 10" }}
+						style={{ gridColumn: "3 / 15" }}
 					>
 						<SectionContainer>
 							<SectionTextBox
@@ -188,7 +189,7 @@ export default function OnwardProject() {
 					<div
 						id="research"
 						className="sectionSpacing--small"
-						style={{ gridColumn: "4 / span 10" }}
+						style={{ gridColumn: "3 / 15" }}
 					>
 						<SectionContainer>
 							<SectionTextBox title="The Problem" subtitle="Research">
@@ -212,7 +213,7 @@ export default function OnwardProject() {
 						</SectionContainer>
 						<div
 							style={{
-								gridColumn: "4 / span 10",
+								gridColumn: "3 / 15",
 								marginTop: "2rem",
 								marginBottom: "2rem",
 							}}
@@ -222,7 +223,6 @@ export default function OnwardProject() {
 									color: "var(--violet)",
 									fontSize: "1.5rem",
 									marginBottom: "1rem",
-									textAlign: "center",
 								}}
 							>
 								What Barriers do IENs Trying to Enter the Canadian Healthcare
@@ -235,7 +235,7 @@ export default function OnwardProject() {
 								display: "grid",
 								gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr",
 								gap: "16px",
-								gridColumn: "4 / span 10",
+								gridColumn: "3 / 15",
 								marginBottom: "4rem",
 							}}
 						>
@@ -266,9 +266,10 @@ export default function OnwardProject() {
 								}
 							/>
 						</div>
-						<SectionContainer>
-							{/* Survey Insights Section */}
-							<div id="survey-insights" className="sectionSpacing--medium">
+
+						{/* Survey Insights Section */}
+						<div id="survey-insights" className="sectionSpacing--small">
+							<SectionContainer>
 								<SectionTextBox title="Survey Insights" subtitle="">
 									<p>
 										To better understand the unique challenges in job
@@ -277,123 +278,165 @@ export default function OnwardProject() {
 										preparation affect performance.
 									</p>
 								</SectionTextBox>
-								<FeatureBox
-									title="Common Challenges"
-									variant="columnLayout"
-									features={[
-										{
-											heading: "Anxiety & Nerves",
-											description:
-												"Both IENs and local nurses feel nervous, especially when underprepared.",
-										},
-										{
-											heading: "Limited Preparation",
-											description:
-												"Many nurses struggle to find time and effective ways to prepare.",
-										},
-										{
-											heading: "Critical Thinking Under Pressure",
-											description:
-												"On-the-spot thinking during behavioural questions is difficult for both groups.",
-										},
-									]}
-									backgroundColors={[
-										"var(--taupe)",
-										"var(--taupe)",
-										"var(--taupe)",
-									]}
+								<TwoColBox
+									leftContent={
+										<>
+											<FeatureBox
+												titleVariant="small"
+												title="Common Challenges"
+												variant="columnLayout"
+												features={[
+													{
+														heading: "Anxiety & Nerves",
+														description:
+															"Both IENs and local nurses feel nervous, especially when underprepared.",
+													},
+													{
+														heading: "Limited Preparation",
+														description:
+															"Many nurses struggle to find time and effective ways to prepare.",
+													},
+													{
+														heading: "Critical Thinking Under Pressure",
+														description:
+															"On-the-spot thinking during behavioural questions is difficult for both groups.",
+													},
+												]}
+												backgroundColors={[
+													"var(--taupe)",
+													"var(--taupe)",
+													"var(--taupe)",
+												]}
+											/>
+										</>
+									}
+									rightContent={
+										<>
+											<FeatureBox
+												title="Unique IEN Challenges"
+												titleVariant="small"
+												variant="columnLayout"
+												features={[
+													{
+														heading: "Recognition of Experience & Credentials",
+														description:
+															"IENs feel their international qualifications are undervalued during interviews.",
+													},
+													{
+														heading: "Language & Terminology Barriers",
+														description:
+															"IENs often struggle with unfamiliar phrases and terminology, adding stress.",
+													},
+													{
+														heading: "Cultural & Style Differences",
+														description:
+															"IENs find it difficult to match Canadian expectations for self-promotion and structured responses.",
+													},
+													{
+														heading: "Confidence & Self-Presentation",
+														description:
+															"Cultural norms around modesty make it harder for IENs to confidently promote themselves.",
+													},
+												]}
+												backgroundColors={[
+													"var(--jasmine)",
+													"var(--jasmine)",
+													"var(--jasmine)",
+													"var(--jasmine)",
+												]}
+											/>
+										</>
+									}
 								/>
-								<FeatureBox
-									title="Unique IEN Challenges"
-									variant="columnLayout"
-									features={[
-										{
-											heading: "Recognition of Experience & Credentials",
-											description:
-												"IENs feel their international qualifications are undervalued during interviews.",
-										},
-										{
-											heading: "Language & Terminology Barriers",
-											description:
-												"IENs often struggle with unfamiliar phrases and terminology, adding stress.",
-										},
-										{
-											heading: "Cultural & Style Differences",
-											description:
-												"IENs find it difficult to match Canadian expectations for self-promotion and structured responses.",
-										},
-										{
-											heading: "Confidence & Self-Presentation",
-											description:
-												"Cultural norms around modesty make it harder for IENs to confidently promote themselves.",
-										},
-									]}
-									backgroundColors={[
-										"var(--jasmine)",
-										"var(--jasmine)",
-										"var(--jasmine)",
-										"var(--jasmine)",
-									]}
-								/>
-							</div>
-						</SectionContainer>
+							</SectionContainer>
+						</div>
 					</div>
 				</FullWidth>
 				<main className="gridContainer">
 					{/* Solution Section */}
 					<div
 						className="sectionSpacing--medium"
-						style={{ gridColumn: "4 / span 10" }}
+						style={{ gridColumn: "3 / 15" }}
 						id="solution"
 					>
-						<SectionContainer padding="small">
+						<Image
+							src="/images/onward/laptop-analysis.webp"
+							alt="Mockup of Onward analysis page on a laptop."
+							width={1920}
+							height={1080}
+							style={{ width: "100%", height: "auto" }}
+						/>
+						<SectionContainer>
 							<SectionTextBox
 								title="Personalized Interview Coaching"
 								subtitle="Solution"
 							>
 								<p>
-									Onward tailors practice sessions and feedback to each user’s
-									background, helping IENs build the skills, confidence, and
-									cultural awareness needed to succeed in Canadian healthcare
-									interviews.
+									ONWARD is a job interview preparation platform designed
+									specifically to support internationally educated nurses (IENs)
+									as they navigate the unique challenges of pursuing nursing
+									careers in Canada.
+								</p>
+								<p>
+									Built with the insights gathered from internationally educated
+									nurses and mentors, ONWARD focuses on helping IENs:
+									<ul>
+										<li>Present their international experience confidently.</li>
+										<li>
+											Adapt to Canadian interview styles, including behavioural
+											and situational questions.
+										</li>
+										<li>
+											Understand unfamiliar terminology and cultural
+											expectations.
+										</li>
+										<li>
+											Receive personalized feedback that highlights strengths
+											and areas for improvement.
+										</li>
+									</ul>
+								</p>
+								<p>
+									By tailoring practice sessions and feedback to each user’s
+									background, ONWARD helps IENs build the skills, confidence,
+									and cultural awareness needed to succeed in interviews —
+									ultimately bridging the gap between their experience and what
+									Canadian employers expect.
 								</p>
 							</SectionTextBox>
-							<video
-								src="/images/onward/onward-practice-demo.webm"
-								autoPlay
-								loop
-								muted
-								playsInline
-								className={styles.fullWidthMedia}
-							/>
-						</SectionContainer>
-					</div>
-
-					{/* Persona Section */}
-					<div
-						className="sectionSpacing--medium"
-						style={{ gridColumn: "4 / span 10" }}
-						id="persona"
-					>
-						<SectionContainer padding="large">
-							<SectionTextBox title="User Persona" />
-							<div style={{ gridColumn: "span 16", marginTop: "0" }}>
-								<Image
-									src="/images/onward/persona-primary.png"
-									width={785}
-									height={636}
-									alt="Primary persona, an internationally educated nurse in Canada."
-									style={{ width: "95%", height: "auto" }}
-								/>
-								<Image
-									src="/images/onward/persona-secondary.png"
-									width={785}
-									height={636}
-									alt="Secondary persona, a registered nurse and mentor in Canada."
-									style={{ width: "95%", height: "auto" }}
+							<div style={{ width: "80%", margin: "0 auto" }}>
+								<video
+									src="/images/onward/onward-practice-demo.webm"
+									autoPlay
+									loop
+									muted
+									playsInline
+									className={styles.fullWidthMedia}
 								/>
 							</div>
-							<SectionTextBox title="Competitive Analysis" />
+						</SectionContainer>
+						<SectionContainer>
+							<SectionTextBox title="User Persona" />
+							<Image
+								src="/images/onward/persona-primary.jpg"
+								width={785}
+								height={636}
+								alt="Primary persona, an internationally educated nurse in Canada."
+								style={{ width: "100%", height: "auto" }}
+							/>
+							<Image
+								src="/images/onward/persona-secondary.jpg"
+								width={785}
+								height={636}
+								alt="Secondary persona, a registered nurse and mentor in Canada."
+								style={{ width: "100%", height: "auto" }}
+							/>
+						</SectionContainer>
+						<SectionContainer>
+							<SectionTextBox
+								title="Competitive Analysis"
+								variant="fullTitle"
+							/>
 							<div className={styles.tableWrapper}>
 								<table className={styles.competitorTable}>
 									<thead>
@@ -407,7 +450,7 @@ export default function OnwardProject() {
 										{competitors.map((comp, index) => (
 											<tr key={index}>
 												<td className={styles.logoCell}>
-													<img src={comp.image} alt={comp.name} />
+													<div>{comp.name}</div>
 												</td>
 												<td>{comp.focus}</td>
 												<td>{comp.gaps}</td>
@@ -418,63 +461,242 @@ export default function OnwardProject() {
 							</div>
 						</SectionContainer>
 					</div>
-
-					{/* Competitor Analysis Section */}
-					<div
-						className="sectionSpacing--small"
-						style={{ gridColumn: "4 / span 10" }}
-						id="competitor-analysis"
-					></div>
-
 					{/* Design & Branding */}
 					<div
 						id="design"
 						className="sectionSpacing--medium"
-						style={{ gridColumn: "4 / span 10" }}
+						style={{ gridColumn: "3 / 15" }}
 					>
-						<SectionContainer padding="large">
-							<SectionTextBox title="Sitemap" subtitle="Design" />
-							<iframe
-								className={styles.embeddedFigma}
-								src="https://embed.figma.com/design/Y7EEsmdBvghuWUbECvEeVN/Onward---FOR-CASE-STUDY?node-id=242-2&embed-host=share"
-								allowFullScreen
+						<ResponsiveSection>
+							<SectionTextBox subtitle="Design Process" title="Built for Focus">
+								<p>
+									Onward was designed through an iterative, user-focused process
+									to directly address the challenges internationally educated
+									nurses (IENs) face when preparing for Canadian healthcare
+									interviews. Combining research insights, user feedback, and
+									usability testing, Onward balances structured practice with
+									personalized, culturally aware feedback.
+								</p>
+								<p>This process was shaped by three core values:</p>
+								<FeatureBox
+									variant="smallGrid"
+									features={[
+										{
+											heading: "1.",
+											description: "Growth through Feedback",
+										},
+										{
+											heading: "2.",
+											description: "Confidence through Understanding",
+										},
+										{
+											heading: "3.",
+											description: "Effective Storytelling",
+										},
+									]}
+								/>
+							</SectionTextBox>
+						</ResponsiveSection>
+						<ResponsiveSection>
+							<TwoColBox
+								variant="5050"
+								align="center"
+								justify="center"
+								leftContent={
+									<>
+										<SectionTextBox title="Sitemap" variant="fullTitle" />
+										<iframe
+											className={styles.embeddedFigma}
+											src="https://embed.figma.com/design/Y7EEsmdBvghuWUbECvEeVN/Onward---FOR-CASE-STUDY?node-id=242-2&embed-host=share"
+											allowFullScreen
+										/>
+									</>
+								}
+								rightContent={
+									<>
+										<SectionTextBox title="Styleguide" variant="fullTitle" />
+										<iframe
+											className={styles.embeddedFigma}
+											src="https://embed.figma.com/design/Y7EEsmdBvghuWUbECvEeVN/Onward---FOR-CASE-STUDY?node-id=435-4&embed-host=share"
+											allowFullScreen
+										/>
+									</>
+								}
 							/>
-							<SectionTextBox title="Lo-fi & Hi-fi Wireframes" />
+						</ResponsiveSection>
+						<SectionContainer>
+							<SectionTextBox
+								title="Lo-fi & Hi-fi Wireframes"
+								variant="fullTitle"
+							/>
 							<iframe
 								className={styles.embeddedFigma}
 								src="https://embed.figma.com/design/Y7EEsmdBvghuWUbECvEeVN/Onward---FOR-CASE-STUDY?node-id=164-473&embed-host=share"
 								allowFullScreen
 							/>
-							<SectionTextBox title="Styleguide" />
-							<iframe
-								className={styles.embeddedFigma}
-								src="https://embed.figma.com/design/Y7EEsmdBvghuWUbECvEeVN/Onward---FOR-CASE-STUDY?node-id=435-4&embed-host=share"
-								allowFullScreen
-							/>
-						</SectionContainer>
-					</div>
-
-					{/* Development Section */}
-					<div
-						className="sectionSpacing--medium"
-						style={{ gridColumn: "4 / span 10" }}
-						id="development"
-					>
-						<SectionContainer padding="medium">
-							<SectionTextBox
-								title="Technology & Features"
-								subtitle="Development"
-							>
-								<p>
-									Onward uses AI-powered transcription, resume parsing, and
-									real-time feedback to provide personalized interview coaching,
-									helping IENs navigate language, culture, and confidence
-									barriers.
-								</p>
-							</SectionTextBox>
 						</SectionContainer>
 					</div>
 				</main>
+
+				{/* Development Section */}
+				<FullWidth backgroundColor="var(--grey)">
+					<div
+						className="sectionSpacing--medium"
+						style={{ gridColumn: "3 / 15" }}
+						id="development"
+					>
+						<SectionTextBox
+							title="Technology & Features"
+							subtitle="Development"
+						>
+							<p>
+								The ONWARD app was developed using Next.js and React for a
+								scalable, component-based front-end, with Supabase managing file
+								storage, video uploads, and user authentication. Chakra UI
+								provided a responsive design system, while Phosphor Icons
+								ensured a clean, modern icon set.
+							</p>
+							<p>
+								The development process followed a modular approach, allowing
+								90% of the MVP feature list to be fully coded and functional,
+								including file uploads, AI-powered question generation,
+								real-time transcription, and tailored feedback.
+							</p>
+						</SectionTextBox>
+					</div>
+					<div
+						className="sectionSpacing--small"
+						style={{ gridColumn: "3 / 15" }}
+					>
+						<SectionContainer>
+							<TwoColBox
+								variant="5050"
+								gap="0"
+								leftContent={
+									<>
+										<FeatureBox
+											variant="smallLayout"
+											features={[
+												{
+													heading: "Resume & Job Posting Uploads:",
+													description:
+														"Users upload resumes and job postings via a drag-and-drop interface powered by Uppy, with files stored securely in Supabase Storage. Public URLs are saved for later use in the AI processing pipeline.",
+												},
+											]}
+										/>
+									</>
+								}
+							/>
+							<Image
+								src="/images/onward/file-upload.webp"
+								alt="File upload page and code block for uploading and saving files to Supabase."
+								width={1920}
+								height={1080}
+								style={{ width: "100%", height: "auto" }}
+							/>
+							<TwoColBox
+								variant="5050"
+								gap="0"
+								leftContent={
+									<>
+										<FeatureBox
+											variant="smallLayout"
+											features={[
+												{
+													heading: "Real-Time Transcription & Text-to-Speech:",
+													description:
+														"During practice interviews, Azure Cognitive Services Speech SDK provides live transcription of user responses, capturing both spoken content and filler words for analysis.",
+												},
+											]}
+										/>
+									</>
+								}
+							/>
+							<Image
+								src="/images/onward/transcriber-code.webp"
+								alt="Answer component and a code block for Azure Speech transcriber SDK."
+								width={1920}
+								height={1080}
+								style={{ width: "100%", height: "auto" }}
+							/>
+							<TwoColBox
+								variant="5050"
+								gap="0"
+								leftContent={
+									<>
+										<FeatureBox
+											variant="smallLayout"
+											features={[
+												{
+													heading: "Video Recording & Playback:",
+													description:
+														"The platform also records the user’s video responses using the device camera and stores the recording in Supabase Storage. Users can replay their interview session to review their non-verbal communication and overall performance.",
+												},
+											]}
+										/>
+									</>
+								}
+							/>
+							<Image
+								src="/images/onward/video-recorder.webp"
+								alt="Video playback & recorder component and code block for video recording."
+								width={1920}
+								height={1080}
+								style={{ width: "100%", height: "auto" }}
+							/>
+							<TwoColBox
+								variant="5050"
+								gap="0"
+								leftContent={
+									<>
+										<FeatureBox
+											variant="smallLayout"
+											features={[
+												{
+													heading: "AI-Powered Questions & Feedback:",
+													description:
+														"Uploaded files are sent to RoughlyAI by passing their public URLs, where the service analyzes resume content and job posting requirements. It returns parsed JSON containing tailored interview questions.",
+												},
+											]}
+										/>
+									</>
+								}
+							/>
+
+							<Image
+								src="/images/onward/question-prompt.webp"
+								alt="Question preview and code block for question prompt sent to RoughlyAI"
+								width={1920}
+								height={1080}
+								style={{ width: "100%", height: "auto" }}
+							/>
+							<TwoColBox
+								variant="5050"
+								gap="0"
+								leftContent={
+									<>
+										<FeatureBox
+											variant="smallLayout"
+											features={[
+												{
+													description:
+														"After the practice session, the user’s transcribed responses are also sent to RoughlyAI, which compares them to the resume and job posting, returning structured feedback on content relevance, communication clarity, and alignment with job expectations.",
+												},
+											]}
+										/>
+									</>
+								}
+							/>
+							<Image
+								src="/images/onward/answer-prompt.webp"
+								alt="Answer container and code block for answer analysis prompt sent to RoughlyAI"
+								width={1920}
+								height={1080}
+								style={{ width: "100%", height: "auto" }}
+							/>
+						</SectionContainer>
+					</div>
+				</FullWidth>
 
 				<footer className={styles.footer}>Jasmine Putri</footer>
 			</div>
