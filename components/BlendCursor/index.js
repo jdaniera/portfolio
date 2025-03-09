@@ -37,9 +37,9 @@ export default function BlendCursor() {
 					className={styles.blendCursor}
 					style={{
 						backgroundColor: colors[i],
-						width: 500 - i * 15, // Different sizes for trailing effect
+						width: 500 - i * 15, 
 						height: 500 - i * 15,
-						filter: `blur(${180 - i * 5}px)`, // Increasing blur on layers
+						filter: `blur(${180 - i * 5}px)`, 
 						transition: `height 0.3s ease-out, width 0.3s ease-out, filter 0.3s ease-out`,
 					}}
 				/>

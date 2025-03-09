@@ -86,6 +86,19 @@ body {
 	color: var(--royal-blue);
 }
 
+.grainyBackground {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("/images/noise.svg");
+	opacity: 0.5;
+	pointer-events: none;
+	z-index: 999;
+	mix-blend-mode: overlay;
+  }
+
 .gridContainer {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
