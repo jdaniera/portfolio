@@ -39,7 +39,7 @@ export default function BlendCursor() {
 						backgroundColor: colors[i],
 						width: 500 - i * 15, // Different sizes for trailing effect
 						height: 500 - i * 15,
-						filter: `blur(${200 - i * 5}px)`, // Increasing blur on layers
+						filter: `blur(${180 - i * 5}px)`, // Increasing blur on layers
 						transition: `height 0.3s ease-out, width 0.3s ease-out, filter 0.3s ease-out`,
 					}}
 				/>

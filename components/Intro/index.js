@@ -16,14 +16,14 @@ export default function Intro() {
 			const y = (e.clientY / innerHeight - 0.5) * 20;
 
 			gsap.to(logoRef.current, {
-				rotateX: y / 4,
-				rotateY: -x / 4,
-				x: -x / 5,
-				y: -y / 5,
+				rotateX: y / 2,
+				rotateY: -x / 2,
+				x: -x / 1,
+				y: -y / 1,
 				transformPerspective: 1000,
 				transformOrigin: "center",
-				duration: 0.5,
-				ease: "power2.out",
+				duration: 0.6,
+				ease: "slow",
 			});
 		};
 

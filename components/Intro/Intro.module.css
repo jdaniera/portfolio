@@ -27,11 +27,12 @@
 	}
 	.logoWrapper {
 		position: absolute;
-		left: 35vw;
-		top: 30vh;
+		left: 25vw;
+		top: 17vh;
 		perspective: 1200px;
 		z-index: -1;
-		opacity: 0.5;
+		opacity: 0.2;
+		width: 40%;
 	}
 
 	.logoContainer {
