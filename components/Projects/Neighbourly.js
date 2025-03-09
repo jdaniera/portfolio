@@ -27,7 +27,7 @@ export default function NeighbourlyProject() {
 				<main className="gridContainer">
 					<div
 						className="sectionSpacing--large"
-						style={{ gridColumn: "4 / span 10" }}
+						style={{ gridColumn: "3 / 15" }}
 					>
 						<SectionContainer padding="large">
 							<ProjectSummary
@@ -66,7 +66,7 @@ export default function NeighbourlyProject() {
 
 					<div
 						className="sectionSpacing--large"
-						style={{ gridColumn: "4 / span 10" }}
+						style={{ gridColumn: "3 / 15" }}
 					>
 						<SectionContainer padding="large">
 							<SectionTextBox
@@ -94,7 +94,7 @@ export default function NeighbourlyProject() {
 
 					<div
 						className="sectionSpacing--large"
-						style={{ gridColumn: "2 / span 14" }}
+						style={{ gridColumn: "2 / 16" }}
 					>
 						<Image
 							src="/images/neighbourly/homepage.webp"
