@@ -1,5 +1,13 @@
 import "@/styles/globals.css";
+import BlendCursor from "@/components/BlendCursor";
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <BlendCursor />
+      <Component {...pageProps} />
+    </>
+  );
 }
+
+export default MyApp;
