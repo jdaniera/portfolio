@@ -66,11 +66,6 @@ export default function Home() {
 						<ProjectList projects={projectsData} />
 					</article>
 				</section>
-
-				<section className={styles.aboutSection}>
-					<AboutMe />
-				</section>
-
 				{/* Footer Section */}
 				{/* <div
           className={`${styles.snapSection} ${styles.footerSection}`}
