@@ -61,22 +61,9 @@ export default function Home() {
 					gridContainer
 					data-section="projects"
 				>
-					<div className={styles.projectsGrid}>
-						{/* Left side section title */}
-						<div
-							className={`${styles.sectionTitle} ${
-								showSectionTitle ? styles.show : styles.hide
-							}`}
-						>
-							<h2 className={styles.titleTop}>selected</h2>
-							<h2 className={styles.titleBottom}>projects</h2>
-						</div>
-
-						{/* Right side project list */}
 						<article className={styles.projectsListContainer}>
 							<ProjectList projects={projectsData} />
 						</article>
-					</div>
 				</section>
 
 				{/* Footer Section */}

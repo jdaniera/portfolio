@@ -8,8 +8,30 @@ import styles from "./Intro.module.css";
 export default function Intro() {
 	const logoWrapperRef = useRef(null);
 	const logoRef = useRef(null);
+	const textRef = useRef(null);
+	const subTextRef = useRef(null);
+	const menuRef = useRef(null);
 
 	useEffect(() => {
+		// Text animation on mount
+		gsap.from([textRef.current, subTextRef.current], {
+			opacity: 0,
+			y: 50,
+			duration: 1,
+			stagger: 0.3,
+			ease: "power3.out",
+		});
+
+		// Menu animation
+		gsap.from(menuRef.current, {
+			opacity: 0,
+			x: 30,
+			duration: 1,
+			delay: 0.6,
+			ease: "power3.out",
+		});
+
+		// Mouse movement effect for logo
 		const handleMouseMove = (e) => {
 			const { innerWidth, innerHeight } = window;
 			const x = (e.clientX / innerWidth - 0.5) * 20;
@@ -40,12 +62,12 @@ export default function Intro() {
 				className={styles.introInnerContainer}
 				style={{ gridColumn: "2 / 11" }}
 			>
-				<h1>
+				<h1 ref={textRef}>
 					Hello,
 					<br />
 					<span>welcome.</span>
 				</h1>
-				<p>
+				<p ref={subTextRef}>
 					Jasmine Putri is a Vancouver-based multidisciplinary digital
 					experience designer with a love for story-telling and human-centered
 					design.
@@ -62,7 +84,7 @@ export default function Intro() {
 					/>
 				</div>
 			</div>
-			<div style={{ gridColumn: "12 / 14" }}>
+			<div style={{ gridColumn: "12 / 14" }} ref={menuRef}>
 				<Menu layout="column" />
 			</div>
 		</div>
