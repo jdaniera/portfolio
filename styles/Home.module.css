@@ -32,6 +32,12 @@
 
 .projectsSection {
   height: 100vh;
+  flex-grow: 1;
+}
+
+.aboutSection {
+  height: 100vh;
+  flex-grow: 1;
 }
 
 /* .sectionTitle {
@@ -52,19 +58,6 @@
   pointer-events: none; 
 } */
 
-/* When section is in view */
-.sectionTitle.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: all; 
-}
-
-/* When section is not in view */
-.sectionTitle.hide {
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
-}
 
 
 .stacked {

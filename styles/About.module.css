@@ -1,0 +1,47 @@
+.page {
+    background-color: var(--light-cream);
+}
+
+.aboutOuterContainer {
+	padding-top: 10vh;
+}
+
+.aboutInnerContainer h2 {
+	font-family: "Nyght-Bold";
+	color: var(--violet);
+}
+
+.aboutInnerContainer span {
+	font-family: "Nyght-Bold-Italic";
+}
+
+.imgContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.contact {
+	margin-top: 35vh;
+	background-color: var(--jasmine);
+}
+
+.contact h1 {
+	font-family: "Nyght-Bold";
+	color: var(--violet);
+	text-align: center;
+	padding: 10rem 0 5rem 0;
+}
+
+.contact p {
+	text-align: center;
+	padding: 1rem;
+	font-size: 1.2rem;
+}
+
+.contactLinks {
+	display: flex;
+	justify-content: space-evenly;
+    padding-top: 2rem;
+	padding-bottom: 10rem;
+	font-size: 1.2rem;
+}

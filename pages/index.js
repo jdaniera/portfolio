@@ -10,6 +10,7 @@ import styles from "@/styles/Home.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import AboutMe from "@/components/AboutMe";
 
 export default function Home() {
 	const isMobile = useMediaQuery("(max-width: 840px)");
@@ -61,9 +62,13 @@ export default function Home() {
 					gridContainer
 					data-section="projects"
 				>
-						<article className={styles.projectsListContainer}>
-							<ProjectList projects={projectsData} />
-						</article>
+					<article className={styles.projectsListContainer}>
+						<ProjectList projects={projectsData} />
+					</article>
+				</section>
+
+				<section className={styles.aboutSection}>
+					<AboutMe />
 				</section>
 
 				{/* Footer Section */}

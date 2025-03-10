@@ -62,6 +62,9 @@ export default function Intro() {
 				className={styles.introInnerContainer}
 				style={{ gridColumn: "2 / 11" }}
 			>
+				<div className={styles.disclaimer}>
+					<p>This portfolio is still a work in progress. Thanks for visiting!</p>
+				</div>
 				<h1 ref={textRef}>
 					Hello,
 					<br />

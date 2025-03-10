@@ -14,7 +14,7 @@ export default function Menu({ layout = "row" }) {
 			<Link href="/about" passHref>
 				<button>/ about me</button>
 			</Link>
-			<Link href="/contact" passHref>
+			<Link href="/about#contact" passHref>
 				<button className={styles.hideOnMobile}>/ contact</button>
 			</Link>
 		</nav>
