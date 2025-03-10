@@ -10,7 +10,6 @@ import styles from "@/styles/Home.module.css";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import useMediaQuery from "@/hooks/useMediaQuery";
-import AboutMe from "@/components/AboutMe";
 
 export default function Home() {
 	const isMobile = useMediaQuery("(max-width: 840px)");
