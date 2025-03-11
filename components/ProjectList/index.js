@@ -28,16 +28,35 @@ export default function ProjectList({ projects }) {
 							<div className={styles.projectCardWrapper}>
 								<Link href={`/projects/${project.slug}`} passHref>
 									<div className={styles.projectCard}>
+										{/* Project Image */}
 										<div className={styles.projectImage}>
 											<img src={project.image} alt={project.title} />
 										</div>
+
+										{/* Project Details */}
 										<div className={styles.projectDetails}>
 											<h3 className={styles.projectTitle}>
 												{project.title}
-												<sup className={styles.studyTag}>{project.tag}</sup>
+												{project.tag && (
+													<sup className={styles.studyTag}>{project.tag}</sup>
+												)}
 											</h3>
-											<p className={styles.projectRole}>{project.role}</p>
+
+											{/* SUMMARY  */}
 											<p className={styles.projectSummary}>{project.summary}</p>
+
+											{/* DETAILS */}
+											{["Role", "Type", "Tools"].map((label) => {
+												const field = project.overview.find(
+													(item) => item.label === label
+												);
+												return field ? (
+													<p key={label} className={styles.projectMeta}>
+														<strong>{label}: </strong>
+														{field.value}
+													</p>
+												) : null;
+											})}
 										</div>
 									</div>
 								</Link>

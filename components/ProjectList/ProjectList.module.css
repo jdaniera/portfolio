@@ -1,162 +1,168 @@
 .projectList {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 }
 
-
 .sectionTitle {
-    font-family: "Nyght-Med-Italic";
-    /* position: fixed;
+	font-family: "Nyght-Med-Italic";
+	color: var(--violet);
+	/* position: fixed;
     display: flex;
     flex-direction: column;
     font-size: 1rem;
     line-height: 3rem;
-    color: var(--violet);
     opacity: 1;
     transform: translateY(0); 
     transition: opacity 0.5s ease, transform 0.5s ease;
     background-color: red; */
-  }  
+}
 
 .projectItem {
-    scroll-snap-align: start;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 1.25rem;
-    font-family: var(--body);
+	scroll-snap-align: start;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	padding: 1.25rem;
+	font-family: var(--body);
 }
 
 /* clickable card */
 .projectCard {
-    position: relative;
-    text-decoration: none;
-    color: inherit;
-    padding: 1rem;
-    border-radius: 8px;
-    /* width: 100%; */
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    cursor: pointer;
+	position: relative;
+	text-decoration: none;
+	color: inherit;
+	padding: 1rem;
+	border-radius: 8px;
+	/* width: 100%; */
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	cursor: pointer;
 }
 
-
 .projectCard::after {
-    content: 'View Details';
-    position: absolute;
-    top: 2rem;
-    right: 3rem;
-    background-color: var(--jasmine);
-    color: var(--black);
-    font-size: 1rem;
-    padding: 4px 8px;
-    border-radius: 4px;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    box-shadow: 5px 8px 12px 8px rgba(10, 12, 126, 0.05);
-    pointer-events: none;
+	content: "View Details";
+	position: absolute;
+	top: 2rem;
+	right: 3rem;
+	background-color: var(--jasmine);
+	color: var(--black);
+	font-size: 1rem;
+	padding: 4px 8px;
+	border-radius: 4px;
+	opacity: 0;
+	transform: translateY(10px);
+	transition: opacity 0.3s ease, transform 0.3s ease;
+	box-shadow: 5px 8px 12px 8px rgba(10, 12, 126, 0.05);
+	pointer-events: none;
 }
 
 .projectCard:hover::after {
-    opacity: 1;
-    transform: translateY(0);
+	opacity: 1;
+	transform: translateY(0);
 }
 
-.projectCard:hover h3{
-    color: rgba(	10,	12,	126, 0.8);
+.projectCard:hover h3 {
+	color: rgba(10, 12, 126, 0.8);
 }
 
 .projectCard:hover p {
-    color: rgba(10, 12, 126, 0.9);
-    text-decoration: none;
+	color: rgba(10, 12, 126, 0.9);
+	text-decoration: none;
 }
 
 .projectImage {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .projectImage img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
 }
 
 .projectImage:hover {
-    opacity: 0.9;
+	opacity: 0.9;
 }
 
 /* Text section */
 .projectDetails {
-    text-align: left;
+	text-align: left;
 }
 
 .projectTitle {
-    color: var(--royal-blue);
-    font-weight: 700;
-    font-size: 1.5rem;
-    text-decoration: none;
-    display: inline-block;
+	color: var(--royal-blue);
+	font-weight: 700;
+	font-size: 1.8rem;
+	text-decoration: none;
+	display: inline-block;
+	margin-bottom: 0.2rem;
 }
 
 .studyTag {
-    font-size: 0.75rem;
-    font-weight: normal;
-    margin-left: 4px;
-    vertical-align: super;
+	font-size: 0.75rem;
+	font-weight: normal;
+	margin-left: 4px;
+	vertical-align: super;
 }
 
 .projectSummary {
-    color: var(--royal-blue);
-    text-decoration: none;
+	color: var(--royal-blue);
+	text-decoration: none;
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.projectMeta {
+	font-size: 1rem;
+	color: var(--royal-blue);
+	margin-bottom: 0.2rem;
 }
 
 @media (min-width: 840px) {
-    .sectionTitle {
-        grid-column: 2 / span 5;
-        width: 20vw;
-        /* position: sticky; */
-        position: sticky;
-        top: 25vh;
-        left: 1vw;
-        font-size: 2rem;
-        line-height: 3.5rem;
-        display: flex;
-        gap: 0.5rem;
-        flex-direction: column;
-      }
+	.sectionTitle {
+		grid-column: 2 / span 5;
+		width: 20vw;
+		/* position: sticky; */
+		position: sticky;
+		top: 25vh;
+		left: 1vw;
+		font-size: 2rem;
+		line-height: 3.5rem;
+		display: flex;
+		gap: 0.5rem;
+		flex-direction: column;
+	}
 
-    .projectItem {
-        scroll-snap-align: start;
-        height: 100vh;
-        box-sizing: border-box;
-        padding: 2vw 5vw; 
-        font-family: var(--body);
-    }
-    
-    .projectCard {
-        position: relative;
-        text-decoration: none;
-        color: inherit;
-        padding: 1rem;
-        border-radius: 8px;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        cursor: pointer;
-    }
-    
-    /* Image */
-    .projectImage img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-    }
-    
+	.projectItem {
+		scroll-snap-align: start;
+		height: 100vh;
+		box-sizing: border-box;
+		padding: 2vw 5vw;
+		font-family: var(--body);
+	}
+
+	.projectCard {
+		position: relative;
+		text-decoration: none;
+		color: inherit;
+		padding: 1rem;
+		border-radius: 8px;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		cursor: pointer;
+	}
+
+	/* Image */
+	.projectImage img {
+		width: 100%;
+		height: auto;
+		border-radius: 8px;
+	}
 }

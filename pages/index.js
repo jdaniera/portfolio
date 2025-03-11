@@ -13,31 +13,6 @@ import useMediaQuery from "@/hooks/useMediaQuery";
 
 export default function Home() {
 	const isMobile = useMediaQuery("(max-width: 840px)");
-	const projectsRef = useRef(null);
-	const [showSectionTitle, setShowSectionTitle] = useState(false);
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				console.log("Is projectsSection visible?", entry.isIntersecting); // Debugging
-				setShowSectionTitle(entry.isIntersecting);
-			},
-			{
-				root: null,
-				threshold: 0.1,
-			}
-		);
-
-		if (projectsRef.current) {
-			observer.observe(projectsRef.current);
-		}
-
-		return () => {
-			if (projectsRef.current) {
-				observer.unobserve(projectsRef.current);
-			}
-		};
-	}, []);
 
 	return (
 		<>
@@ -65,6 +40,7 @@ export default function Home() {
 						<ProjectList projects={projectsData} />
 					</article>
 				</section>
+				
 				{/* Footer Section */}
 				{/* <div
           className={`${styles.snapSection} ${styles.footerSection}`}
