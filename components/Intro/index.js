@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import styles from "./Intro.module.css";
+import BlendCursor from "@/components/BlendCursor";
 
 export default function Intro() {
 	const logoWrapperRef = useRef(null);
@@ -57,39 +58,52 @@ export default function Intro() {
 	}, []);
 
 	return (
-		<div className={`gridContainer ${styles.introOuterContainer}`}>
-			<div
-				className={styles.introInnerContainer}
-				style={{ gridColumn: "2 / 11" }}
-			>
-				<div className={styles.disclaimer}>
-					<p>This portfolio is still a work in progress. Thanks for visiting!</p>
+		<>
+			<div className={styles.introWrapper}>
+				<BlendCursor />
+				<div className={`gridContainer ${styles.introOuterContainer}`}>
+					<div
+						className={styles.textContainer}
+						style={{ gridColumn: "2 / 11" }}
+					>
+						<div className={styles.disclaimer}>
+							<p>
+								This portfolio is still a work in progress. Thanks for visiting!
+							</p>
+						</div>
+						<div className={styles.introInnerContainer}>
+							<h1 ref={textRef}>
+								Hello,
+								<br />
+								<span>welcome.</span>
+							</h1>
+							<p ref={subTextRef}>
+								Jasmine Putri is a Vancouver-based multidisciplinary digital
+								experience designer with a love for story-telling and
+								human-centered design.
+							</p>
+						</div>
+					</div>
+					<div
+						className={styles.menuWrapper}
+						style={{ gridColumn: "12 / 14" }}
+						ref={menuRef}
+					>
+						<Menu layout="column" />
+					</div>
 				</div>
-				<h1 ref={textRef}>
-					Hello,
-					<br />
-					<span>welcome.</span>
-				</h1>
-				<p ref={subTextRef}>
-					Jasmine Putri is a Vancouver-based multidisciplinary digital
-					experience designer with a love for story-telling and human-centered
-					design.
-				</p>
-			</div>
-			<div ref={logoWrapperRef} className={styles.logoWrapper}>
-				<div className={styles.logoContainer} ref={logoRef}>
-					<Image
-						src="/images/logo/logo-light.svg"
-						alt="Jasmine Putri logo"
-						width={1920}
-						height={1080}
-						style={{ width: "100%", height: "auto" }}
-					/>
+				<div ref={logoWrapperRef} className={styles.logoWrapper}>
+					<div className={styles.logoContainer} ref={logoRef}>
+						<Image
+							src="/images/logo/logo-light.svg"
+							alt="Jasmine Putri logo"
+							width={1920}
+							height={1080}
+							style={{ width: "100%", height: "auto" }}
+						/>
+					</div>
 				</div>
 			</div>
-			<div style={{ gridColumn: "12 / 14" }} ref={menuRef}>
-				<Menu layout="column" />
-			</div>
-		</div>
+		</>
 	);
 }

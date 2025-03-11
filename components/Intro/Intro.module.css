@@ -1,3 +1,8 @@
+.introWrapper {
+	position: relative;
+	overflow: hidden;
+}
+
 .introOuterContainer {
 	height: 100vh;
 	z-index: 2;
@@ -31,6 +36,15 @@
 }
 
 @media (min-width: 840px) {
+	
+	.introInnerContainer {
+		padding-top: 40vh;
+	}
+
+	.menuWrapper {
+		padding-top: 42vh;
+	}
+
 	.introInnerContainer p {
 		font-size: 1.5rem;
 	}
@@ -51,7 +65,7 @@
 		left: 25vw;
 		top: 17vh;
 		perspective: 1200px;
-		z-index: -1;
+		z-index: 0;
 		opacity: 0.2;
 		width: 40%;
 	}
