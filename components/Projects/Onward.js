@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Header from "@/components/Header";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { projectsData } from "@/data/projectsData";
 import ProjectSummary from "@/components/ProjectSummary";
 import SectionTextBox from "../SectionText";
 import SectionContainer from "../SectionContainer";
@@ -15,6 +16,9 @@ import ResponsiveSection from "../ResponsiveSection";
 
 export default function OnwardProject() {
 	const isMobile = useMediaQuery("(max-width: 840px)");
+
+	const projectSlug = "onward";
+	const project = projectsData.find((p) => p.slug === projectSlug);
 
 	const handleLearnMore = (title) => {
 		console.log(`Learn more clicked for: ${title}`);
@@ -104,29 +108,22 @@ export default function OnwardProject() {
 					>
 						<SectionContainer>
 							<ProjectSummary
-								title="Onward"
-								details={[
-									{
-										label: "role",
-										value: "UI/UX Designer, Front-end Developer",
-									},
-									{ label: "timeline", value: "January 2024 — May 2024" },
-									{ label: "type", value: "Website / Web App / Mobile App" },
-									{ label: "toolstack", value: "Figma, Next.js" },
-									{ label: "program used", value: "Next.js, Azure" },
-									{
-										label: "link",
-										value: (
+								title={project.title}
+								details={project.overview.map((item) => ({
+									label: item.label,
+									value:
+										item.label === "Link" && typeof item.value === "object" ? (
 											<a
-												href="https://be-neighbourly.com"
+												href={item.value.url}
 												target="_blank"
 												rel="noopener noreferrer"
 											>
-												be-neighbourly.com
+												{item.value.text}
 											</a>
+										) : (
+											item.value
 										),
-									},
-								]}
+								}))}
 							/>
 						</SectionContainer>
 						<SectionContainer>
@@ -149,7 +146,7 @@ export default function OnwardProject() {
 						style={{ gridColumn: "span 16" }}
 					>
 						<Image
-							src="/images/onward/transcription.png"
+							src="/images/onward/desktop-answer.webp"
 							alt="Neighbourly Hero"
 							width={1920}
 							height={1080}
@@ -360,7 +357,7 @@ export default function OnwardProject() {
 						id="solution"
 					>
 						<Image
-							src="/images/onward/laptop-analysis.webp"
+							src="/images/onward/analysis-desktop.webp"
 							alt="Mockup of Onward analysis page on a laptop."
 							width={1920}
 							height={1080}
@@ -575,6 +572,7 @@ export default function OnwardProject() {
 								leftContent={
 									<>
 										<FeatureBox
+											customStyles={{ padding: "2rem 0 0 0" }}
 											variant="smallLayout"
 											features={[
 												{
@@ -600,6 +598,7 @@ export default function OnwardProject() {
 								leftContent={
 									<>
 										<FeatureBox
+											customStyles={{ padding: "5rem 0 0 0" }}
 											variant="smallLayout"
 											features={[
 												{
@@ -625,6 +624,7 @@ export default function OnwardProject() {
 								leftContent={
 									<>
 										<FeatureBox
+											customStyles={{ padding: "5rem 0 0 0" }}
 											variant="smallLayout"
 											features={[
 												{
@@ -650,6 +650,7 @@ export default function OnwardProject() {
 								leftContent={
 									<>
 										<FeatureBox
+											customStyles={{ padding: "5rem 0 0 0" }}
 											variant="smallLayout"
 											features={[
 												{
@@ -676,6 +677,7 @@ export default function OnwardProject() {
 								leftContent={
 									<>
 										<FeatureBox
+											customStyles={{ padding: "5rem 0 0 0" }}
 											variant="smallLayout"
 											features={[
 												{

@@ -3,26 +3,17 @@ export const projectsData = [
 		slug: "onward",
 		title: "Onward",
 		tag: "case study",
-		image: "/images/onward/transcription.png",
-		summary:
-			"A mock interview web-app",
+		image: "/images/onward/desktop-answer.webp",
+		summary: "A mock interview web-app",
 		overview: [
-			{ label: "role", value: "UX Researcher, Developer" },
-			{ label: "timeline", value: "January 2024 — May 2024" },
-			{ label: "type", value: "Web App" },
-			{ label: "toolstack", value: "Figma, Next.js, Chakra UI" },
-			{ label: "program used", value: "Next.js, Azure Cognitive Services" },
+			{ label: "Role", value: "UX Researcher, Front-end Developer" },
+			{ label: "Timeline", value: "September 2024 - December 2024" },
+			{ label: "Type", value: "Web App" },
+			{ label: "Team", value: "5 Designers, 2 Developers" },
+			{ label: "Tools", value: "Figma, Chakra UI, Supabase, Next.js, Azure Cognitive Services. RoughlyAI" },
 			{
-				label: "link",
-				value: (
-					<a
-						href="https://onward-prep.ca/"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Visit Onward
-					</a>
-				),
+				label: "Link",
+				value: { text: "Visit Onward", url: "https://onward-prep.ca/" },
 			},
 		],
 		projectDetailsLink: "/projects/onward",
