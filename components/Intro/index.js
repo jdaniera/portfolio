@@ -18,18 +18,31 @@ export default function Intro() {
 		gsap.from([textRef.current, subTextRef.current], {
 			opacity: 0,
 			y: 50,
-			duration: 1,
-			stagger: 0.3,
-			ease: "power3.out",
+			duration: 1.8,
+			stagger: 0.8,
+			ease: "power2.out",
 		});
 
 		// Menu animation
 		gsap.from(menuRef.current, {
 			opacity: 0,
 			x: 30,
-			duration: 1,
-			delay: 0.6,
-			ease: "power3.out",
+			duration: 1.8,
+			delay: 1.2,
+			ease: "power2.out",
+		});
+
+		// Logo animation
+		gsap.from(logoRef.current, {
+			opacity: 0,
+			scale: 0.6,
+			filter: "blur(10px)", 
+			duration: 2, 
+			delay: 1.8,
+			ease: "power3.out", 
+			onComplete: () => {
+				gsap.to(logoRef.current, { filter: "blur(0px)", duration: 0.5 }); // clear blur effect
+			}
 		});
 
 		// Mouse movement effect for logo
@@ -68,7 +81,7 @@ export default function Intro() {
 					>
 						<div className={styles.disclaimer}>
 							<p>
-								This portfolio is still a work in progress. Thanks for visiting!
+								This portfolio is still a work in progress. For the best experience please view on desktop.
 							</p>
 						</div>
 						<div className={styles.introInnerContainer}>
@@ -89,7 +102,7 @@ export default function Intro() {
 						style={{ gridColumn: "12 / 14" }}
 						ref={menuRef}
 					>
-						<Menu layout="column" />
+						<Menu layout="column" animate="true"/>
 					</div>
 				</div>
 				<div ref={logoWrapperRef} className={styles.logoWrapper}>
