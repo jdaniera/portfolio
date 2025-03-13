@@ -26,19 +26,20 @@ export const projectsData = [
 	{
 		slug: "neighbourly",
 		title: "Neighbourly",
-		image: "/images/neighbourly/homepage.webp",
+		image: "/images/neighbourly/pottery-class.webp",
 		summary:
 			"A community-driven marketplace where people can offer and find local services, fostering connections and support within neighbourhoods.",
 		overview: [
 			{ label: "Role", value: "UI/UX Designer, Front-end Developer" },
 			{ label: "Timeline", value: "January 2024 — May 2024" },
 			{ label: "Type", value: "Mobile App" },
+			{ label: "Team", value: "3 Designers / Front-end Developers" },
 			{ label: "Tools", value: "Figma, Next.js, Adobe Illustrator" },
 			{
 				label: "Link",
 				value: {
 					text: "Visit Neighbourly",
-					url: "https://neighbourly-beryl.vercel.app",
+					url: "https://neighbourly-marketplace.vercel.app/",
 				},
 			},
 		],
