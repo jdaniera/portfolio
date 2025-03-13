@@ -144,14 +144,14 @@ export default function NeighbourlyProject() {
 								customStyles={{
 									outer: {
 										maxWidth: "60vw",
-										padding: "0 2rem",
+										padding: "5rem 2rem",
 										marginLeft: "1rem",
 									},
 								}}
 								leftContent={
 									<img
 										src="/images/neighbourly/james-plunk-service.webp"
-										style={{ width: "80%", maxWidth: "500px" }}
+										style={{ width: "90%", maxWidth: "500px" }}
 									/>
 								}
 								rightContent={
@@ -159,7 +159,8 @@ export default function NeighbourlyProject() {
 										features={[
 											{
 												heading: "In-app Booking",
-												description: "Book local classes directly in the app.",
+												description:
+													"Book local classes, services or mentorship sessions directly in the app.",
 											},
 										]}
 									/>
@@ -182,7 +183,8 @@ export default function NeighbourlyProject() {
 										features={[
 											{
 												heading: "User Reviews",
-												description: "See trusted reviews from your community.",
+												description:
+													"Hear from your neighbours! Read genuine reviews and recommendations from community members who have used local services.",
 											},
 										]}
 									/>
@@ -190,7 +192,7 @@ export default function NeighbourlyProject() {
 								rightContent={
 									<img
 										src="/images/neighbourly/mentor-pottery.webp"
-										style={{ width: "80%", maxWidth: "500px" }}
+										style={{ width: "90%", maxWidth: "500px" }}
 									/>
 								}
 							/>
@@ -361,4 +363,3 @@ export default function NeighbourlyProject() {
 		</>
 	);
 }
-
