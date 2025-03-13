@@ -79,8 +79,8 @@ export default function OnwardProject() {
 	return (
 		<>
 			<Head>
-				<title>Jasmine Putri | Portfolio | Onward</title>
-				<meta name="description" content="Onward Case Study" />
+				<title>Jasmine Putri | Onward</title>
+				<meta name="description" content="Onward Project Case Study" />
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
@@ -401,9 +401,9 @@ export default function OnwardProject() {
 									Canadian employers expect.
 								</p>
 							</SectionTextBox>
-							<div style={{ width: "80%", margin: "0 auto" }}>
+							<div style={{ width: "100%", margin: "0 auto" }}>
 								<video
-									src="/images/onward/onward-practice-demo.webm"
+									src="/images/onward/onward-tech-demo.webm"
 									autoPlay
 									loop
 									muted
@@ -458,6 +458,7 @@ export default function OnwardProject() {
 							</div>
 						</SectionContainer>
 					</div>
+
 					{/* Design & Branding */}
 					<div
 						id="design"

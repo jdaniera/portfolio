@@ -42,6 +42,7 @@
 .backFace {
     background: #eaeaea;
     transform: rotateY(180deg);
+    padding: 2rem;
 }
 
 /* Shared content wrapper */
