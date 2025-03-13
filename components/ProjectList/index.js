@@ -4,6 +4,7 @@ import styles from "./ProjectList.module.css";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Chips from "@/components/Chips";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -46,17 +47,28 @@ export default function ProjectList({ projects }) {
 											<p className={styles.projectSummary}>{project.summary}</p>
 
 											{/* DETAILS */}
-											{["Role", "Type", "Tools"].map((label) => {
-												const field = project.overview.find(
-													(item) => item.label === label
-												);
-												return field ? (
-													<p key={label} className={styles.projectMeta}>
-														<strong>{label}: </strong>
-														{field.value}
-													</p>
+											{(() => {
+												const allChips = [];
+												["Role", "Type", "Tools"].forEach((label) => {
+													const field = project.overview.find(
+														(item) => item.label === label
+													);
+													if (field) {
+														allChips.push(
+															...field.value.split(", ").map((chip) => ({
+																label: chip,
+																category: label.toLowerCase(),
+															}))
+														);
+													}
+												});
+
+												return allChips.length > 0 ? (
+													<div className={styles.chipSection}>
+														<Chips items={allChips} />
+													</div>
 												) : null;
-											})}
+											})()}
 										</div>
 									</div>
 								</Link>

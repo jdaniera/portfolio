@@ -43,28 +43,6 @@
 	cursor: pointer;
 }
 
-.projectCard::after {
-	content: "View Details";
-	position: absolute;
-	top: 2rem;
-	right: 3rem;
-	background-color: var(--jasmine);
-	color: var(--black);
-	font-size: 1rem;
-	padding: 4px 8px;
-	border-radius: 4px;
-	opacity: 0;
-	transform: translateY(10px);
-	transition: opacity 0.3s ease, transform 0.3s ease;
-	box-shadow: 5px 8px 12px 8px rgba(10, 12, 126, 0.05);
-	pointer-events: none;
-}
-
-.projectCard:hover::after {
-	opacity: 1;
-	transform: translateY(0);
-}
-
 .projectCard:hover h3 {
 	color: rgba(10, 12, 126, 0.8);
 }
@@ -143,7 +121,7 @@
 		scroll-snap-align: start;
 		height: 100vh;
 		box-sizing: border-box;
-		padding: 2vw 5vw;
+		padding: 7vw 5vw;
 		font-family: var(--body);
 	}
 
@@ -151,7 +129,8 @@
 		position: relative;
 		text-decoration: none;
 		color: inherit;
-		padding: 1rem;
+		padding: 8.5vh 1rem 1rem 4rem;
+		width: 95%;
 		border-radius: 8px;
 		display: flex;
 		flex-direction: column;
