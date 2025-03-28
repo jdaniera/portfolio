@@ -1,5 +1,7 @@
 .page {
     background-color: var(--light-cream);
+	min-height: 100vh;
+	position: relative;
 }
 
 .aboutOuterContainer {

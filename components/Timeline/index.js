@@ -1,71 +1,89 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import styles from "./Timeline.module.css";
 
 export default function Timeline() {
 	const containerRef = useRef(null);
 	const timelineRef = useRef(null);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		if (typeof window !== "undefined") {
-			import("gsap").then((gsapModule) => {
+			const loadGSAP = async () => {
+				const gsapModule = await import("gsap");
+				const scrollTriggerModule = await import("gsap/ScrollTrigger");
+
 				const gsap = gsapModule.default || gsapModule;
+				const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
+				gsap.registerPlugin(ScrollTrigger);
 
-				import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
-					gsap.registerPlugin(ScrollTrigger);
+				const ctx = gsap.context(() => {
+					const container = containerRef.current;
+					const timeline = timelineRef.current;
+					if (!container || !timeline) return;
 
-					// Horizontal scroll
-					const scrollTriggerInstance = ScrollTrigger.create({
-						trigger: containerRef.current,
-						start: "top top",
-						end: () => `+=${timelineRef.current.scrollWidth}`,
-						scrub: 1,
-						pin: true,
-						anticipatePin: 1,
-					});
-
-					// Horizontal animation
-					gsap.to(timelineRef.current, {
-						x: () => -timelineRef.current.scrollWidth + window.innerWidth,
+					// Horizontal scroll animation
+					const horizontalTween = gsap.to(timeline, {
+						x: () => -timeline.scrollWidth + window.innerWidth,
 						ease: "none",
-						scrollTrigger: scrollTriggerInstance,
+						scrollTrigger: {
+							trigger: container,
+							start: "top top",
+							end: () => `+=${timeline.scrollWidth}`,
+							scrub: 1,
+							pin: true,
+							anticipatePin: 1,
+							id: "horizontalScroll",
+						},
 					});
 
-					// Section 3. Parallax 
-					gsap.utils.toArray(".parallaxSection").forEach((section) => {
+					const containerAnim = horizontalTween.scrollTrigger;
+
+					// Parallax effect for Section 3
+					const section = document.querySelector(".parallaxSection");
+					if (section) {
 						const bg = section.querySelector(".bgLayer");
 						const fg = section.querySelector(".fgLayer");
 
 						if (bg) {
 							gsap.to(bg, {
-								y: "-10%",
+								y: "-20%",
 								ease: "none",
 								scrollTrigger: {
 									trigger: section,
 									start: "left center",
 									end: "right center",
 									scrub: true,
-									containerAnimation: scrollTriggerInstance,
+									containerAnimation: containerAnim,
 								},
 							});
 						}
 
 						if (fg) {
 							gsap.to(fg, {
-								y: "-25%",
+								y: "-45%",
+								scale: 1.1,
+								opacity: 1,
 								ease: "none",
 								scrollTrigger: {
 									trigger: section,
 									start: "left center",
 									end: "right center",
 									scrub: true,
-									containerAnimation: scrollTriggerInstance,
+									containerAnimation: containerAnim,
 								},
 							});
 						}
-					});
-				});
-			});
+					}
+				}, containerRef);
+
+				// Refresh ScrollTrigger after setup
+				ScrollTrigger.refresh();
+
+				// Cleanup function to kill animations and ScrollTriggers
+				return () => ctx.revert();
+			};
+
+			loadGSAP();
 		}
 	}, []);
 

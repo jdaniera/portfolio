@@ -1,3 +1,9 @@
+.page {
+    background-color: var(--light-cream);
+	min-height: 100vh;
+	position: relative;
+}
+
 /* Timeline Section */
 .timelineSection {
 	position: relative;
@@ -11,8 +17,8 @@
 
 .timelineContent {
 	display: flex;
-	flex-wrap: nowrap;
 	width: fit-content;
+	height: 100%;
 }
 
 /* Milestones */
@@ -93,6 +99,7 @@
 
 .bgLayer {
 	z-index: 1;
+	object-position: center center;
 }
 .fgLayer {
 	z-index: 3;
@@ -102,6 +109,7 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	transform-origin: center;
+	object-position: center center;
 }
 
 @media (max-width: 768px) {

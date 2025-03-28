@@ -66,9 +66,9 @@ export default function AboutMe() {
 							that leads.
 						</p>
 					</div>
-					<div style={{ gridColumn: "span 16" }}>
+					{/* <div style={{ gridColumn: "span 16" }}>
 						<Timeline />
-					</div>
+					</div> */}
 					<div
 						className={styles.contact}
 						style={{ gridColumn: "span 16" }}

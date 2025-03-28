@@ -7,11 +7,11 @@
 	--violet: #5657c0;
 	--royal-blue: #0a0c7e;
 
-	--lavender: #6C649E;
+	--lavender: #6c649e;
 	--med-lavender: #a083c8;
 	--plum: #a80079;
 
-	--light-lavender: #F9F8FF;
+	--light-lavender: #f9f8ff;
 	--vanilla: #fff9e1;
 	--beige: #fdfaf3;
 	--light-cream: #fffcf1;
@@ -84,6 +84,7 @@ body {
 	font-size: 1rem;
 	font-weight: 400;
 	color: var(--royal-blue);
+	overflow-x: hidden;
 }
 
 .grainyBackground {
@@ -97,7 +98,7 @@ body {
 	pointer-events: none;
 	z-index: 3;
 	mix-blend-mode: overlay;
-  }
+}
 
 .gridContainer {
 	display: grid;
@@ -135,7 +136,6 @@ button:hover {
 	.gridContainer {
 		grid-template-columns: repeat(8, 1fr);
 	}
-
 
 	.sectionSpacing {
 		margin-top: 1.5rem;
