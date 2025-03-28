@@ -23,7 +23,7 @@ export default function ProjectList({ projects }) {
 						<h2 className={styles.titleBottom}>projects</h2>
 					</div>
 				</div>
-				<div className={styles.projectList} style={{ gridColumn: "6 / 16" }}>
+				<div className={styles.projectList} style={{ gridColumn: "7 / 16" }}>
 					{projects.map((project) => (
 						<div className={styles.projectItem} key={project.slug}>
 							<div className={styles.projectCardWrapper}>

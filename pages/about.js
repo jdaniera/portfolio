@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import styles from "../styles/About.module.css";
+import Timeline from "@/components/Timeline";
 
 export default function AboutMe() {
 	return (
@@ -14,7 +15,7 @@ export default function AboutMe() {
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-            <Header/>
+			<Header />
 			<main className={`${styles.page}`}>
 				<div
 					className={`gridContainer ${styles.aboutOuterContainer}`}
@@ -65,7 +66,14 @@ export default function AboutMe() {
 							that leads.
 						</p>
 					</div>
-					<div className={styles.contact} style={{ gridColumn: "span 16" }}>
+					<div style={{ gridColumn: "span 16" }}>
+						<Timeline />
+					</div>
+					<div
+						className={styles.contact}
+						style={{ gridColumn: "span 16" }}
+						id="contact"
+					>
 						<h1>Say hi back!</h1>
 						<p>
 							Interested in collaborating? Whether it’s a project, an idea, or

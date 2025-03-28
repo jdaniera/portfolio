@@ -25,9 +25,8 @@ export default function Header({ compactHeader }) {
             <Link href="/" passHref>
               <Image 
                 src="/images/logo/logo-yellow.svg"
-                width= {34}
-                height={41}
-                className={styles.navLogo}
+                width= {24}
+                height={33}
               />
             </Link>
             <Link href="/projects" passHref>

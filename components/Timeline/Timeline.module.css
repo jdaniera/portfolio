@@ -1,0 +1,124 @@
+/* Timeline Section */
+.timelineSection {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	background: var(--light-cream);
+}
+
+.timelineContent {
+	display: flex;
+	flex-wrap: nowrap;
+	width: fit-content;
+}
+
+/* Milestones */
+.milestone {
+	min-width: 100vw;
+	height: 80vh;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 4rem;
+	box-sizing: border-box;
+}
+
+/* Text Alignment */
+.leftAlign {
+	width: 45%;
+	text-align: left;
+}
+
+.rightAlign {
+	width: 45%;
+	text-align: right;
+}
+
+.leftBlock {
+	width: 45%;
+	height: 60vh;
+	background: var(--neutral-gray);
+}
+
+/* CTA Styling */
+.ctaText {
+	font-size: 1.2rem;
+	font-weight: 500;
+	display: flex;
+	align-items: center;
+}
+
+.ctaText::after {
+	content: "→";
+	margin-left: 0.5rem;
+}
+
+/* Headings (Fixed for CSS Modules) */
+.heading {
+	font-size: 2.5rem;
+	font-weight: bold;
+	color: var(--deep-blue);
+	font-style: italic;
+}
+
+/* Lists */
+.list ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+.list ul li {
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+.parallaxSection {
+	position: relative;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.layer {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	top: 0;
+	left: 0;
+}
+
+.bgLayer {
+	z-index: 1;
+}
+.fgLayer {
+	z-index: 3;
+	width: 120%;
+	height: auto;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	transform-origin: center;
+}
+
+@media (max-width: 768px) {
+	.milestone {
+		flex-direction: column;
+		justify-content: center;
+		text-align: center;
+		padding: 2rem;
+	}
+
+	.leftAlign,
+	.rightAlign,
+	.leftBlock {
+		width: 100%;
+	}
+
+	.heading {
+		font-size: 2rem;
+	}
+}
