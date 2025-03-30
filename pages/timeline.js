@@ -32,7 +32,7 @@ export default function Timeline() {
 						scrub: 1,
 						pin: true,
 						anticipatePin: 1,
-						markers: true,
+						// markers: true,
 					},
 				});
 
@@ -49,7 +49,7 @@ export default function Timeline() {
 					scrollTrigger: {
 						trigger: ".milestone-1",
 						...baseTrigger,
-						markers: true,
+						// markers: true,
 					},
 				});
 				section1TL
@@ -71,7 +71,7 @@ export default function Timeline() {
 					scrollTrigger: {
 						trigger: ".milestone-2",
 						...baseTrigger,
-						markers: true,
+						// markers: true,
 					},
 				});
 				section2TL;
@@ -126,7 +126,7 @@ export default function Timeline() {
 					scrollTrigger: {
 						trigger: ".milestone-3",
 						...baseTrigger,
-						markers: true,
+						// markers: true,
 					},
 				});
 				section3TL
@@ -205,7 +205,7 @@ export default function Timeline() {
 					scrollTrigger: {
 						trigger: ".milestone-4",
 						...baseTrigger,
-						markers: true,
+						// markers: true,
 					},
 				});
 				section4TL
@@ -234,7 +234,7 @@ export default function Timeline() {
 					scrollTrigger: {
 						trigger: ".milestone-5",
 						...baseTrigger,
-						markers: true,
+						// markers: true,
 					},
 				});
 				section5TL
@@ -284,7 +284,7 @@ export default function Timeline() {
 					scrollTrigger: {
 						trigger: ".milestone-6",
 						...baseTrigger,
-						markers: true,
+						// markers: true,
 					},
 				});
 				section6TL.from(".milestone-6 p", {
