@@ -9,6 +9,13 @@ export default function Timeline() {
 	useLayoutEffect(() => {
 		if (typeof window !== "undefined") {
 			const loadGSAP = async () => {
+				const container = containerRef.current;
+				const timeline = timelineRef.current;
+				if (!container || !timeline) {
+					console.warn("Missing container/timeline");
+					return;
+				}
+
 				const gsapModule = await import("gsap");
 				const scrollTriggerModule = await import("gsap/ScrollTrigger");
 
@@ -16,13 +23,8 @@ export default function Timeline() {
 				const ScrollTrigger = scrollTriggerModule.ScrollTrigger;
 				gsap.registerPlugin(ScrollTrigger);
 
-				const ctx = gsap.context(() => {
-					const container = containerRef.current;
-					const timeline = timelineRef.current;
-					if (!container || !timeline) return;
-
-					// Horizontal scroll animation
-					const horizontalTween = gsap.to(timeline, {
+				ctx = gsap.context(() => {
+					const horizontalScroll = gsap.to(timeline, {
 						x: () => -timeline.scrollWidth + window.innerWidth,
 						ease: "none",
 						scrollTrigger: {
@@ -32,14 +34,94 @@ export default function Timeline() {
 							scrub: 1,
 							pin: true,
 							anticipatePin: 1,
-							id: "horizontalScroll",
+							markers: true,
 						},
 					});
 
-					const containerAnim = horizontalTween.scrollTrigger;
+					// SECTION 1: Intro & CTA
+					gsap.from(".milestone-1 .ctaText", {
+						opacity: 0,
+						y: 20,
+						duration: 1,
+						ease: "sine.out",
+						scrollTrigger: {
+							trigger: ".milestone-1",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+					gsap.from(".milestone-1 .heading", {
+						opacity: 0,
+						y: 40,
+						delay: 0.2,
+						duration: 1,
+						ease: "sine.out",
+						scrollTrigger: {
+							trigger: ".milestone-1",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
 
-					// Parallax effect for Section 3
-					const section = document.querySelector(".parallaxSection");
+					// SECTION 2: Making Things
+					gsap.from(".milestone-2 .leftAlign p", {
+						x: -50,
+						opacity: 0,
+						stagger: 0.15,
+						duration: 0.8,
+						ease: "power2.out",
+						scrollTrigger: {
+							trigger: ".milestone-2",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+					gsap.from(".milestone-2 .rightAlign p", {
+						x: 50,
+						opacity: 0,
+						stagger: 0.15,
+						duration: 0.8,
+						ease: "power2.out",
+						scrollTrigger: {
+							trigger: ".milestone-2",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+
+					// SECTION 3: Digital Awakening (with parallax)
+					gsap.from(".milestone-3 .heading", {
+						y: 50,
+						opacity: 0,
+						duration: 1,
+						ease: "expo.out",
+						scrollTrigger: {
+							trigger: ".milestone-3 .heading",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+					gsap.from(".milestone-3 .rightAlign p", {
+						opacity: 0,
+						y: 20,
+						stagger: 0.2,
+						duration: 1,
+						ease: "power2.out",
+						scrollTrigger: {
+							trigger: ".milestone-3 .rightAlign",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+
+					// PARALLAX IMAGES for Section 3
+					const section = timeline.querySelector(".parallaxSection");
 					if (section) {
 						const bg = section.querySelector(".bgLayer");
 						const fg = section.querySelector(".fgLayer");
@@ -53,28 +135,98 @@ export default function Timeline() {
 									start: "left center",
 									end: "right center",
 									scrub: true,
-									containerAnimation: containerAnim,
+									containerAnimation: horizontalScroll,
+									markers: true,
 								},
 							});
 						}
-
 						if (fg) {
 							gsap.to(fg, {
-								y: "-45%",
+								y: "-40%",
 								scale: 1.1,
-								opacity: 1,
 								ease: "none",
 								scrollTrigger: {
 									trigger: section,
 									start: "left center",
 									end: "right center",
 									scrub: true,
-									containerAnimation: containerAnim,
+									containerAnimation: horizontalScroll,
+									markers: true,
 								},
 							});
 						}
 					}
-				}, containerRef);
+
+					// SECTION 4: Psychology
+					gsap.from(".milestone-4 .leftAlign > *", {
+						x: -40,
+						opacity: 0,
+						stagger: 0.2,
+						duration: 1,
+						ease: "sine.out",
+						scrollTrigger: {
+							trigger: ".milestone-4",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+					gsap.from(".milestone-4 .rightAlign > *", {
+						x: 40,
+						opacity: 0,
+						stagger: 0.2,
+						duration: 1,
+						ease: "sine.out",
+						scrollTrigger: {
+							trigger: ".milestone-4",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+
+					// SECTION 5: UI/UX
+					gsap.from(".milestone-5 .list li", {
+						y: 30,
+						opacity: 0,
+						stagger: 0.1,
+						duration: 0.8,
+						ease: "back.out(1.4)",
+						scrollTrigger: {
+							trigger: ".milestone-5 .list",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+					gsap.from(".milestone-5 .heading", {
+						scale: 0.95,
+						opacity: 0,
+						duration: 1,
+						ease: "expo.out",
+						scrollTrigger: {
+							trigger: ".milestone-5 .heading",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+
+					// SECTION 6: Wrap Up
+					gsap.from(".milestone-6 p", {
+						y: 40,
+						opacity: 0,
+						stagger: 0.2,
+						duration: 1,
+						ease: "sine.out",
+						scrollTrigger: {
+							trigger: ".milestone-6",
+							start: "left center",
+							containerAnimation: horizontalScroll,
+							markers: true,
+						},
+					});
+				}, container);
 
 				// Refresh ScrollTrigger after setup
 				ScrollTrigger.refresh();
@@ -91,7 +243,7 @@ export default function Timeline() {
 		<section ref={containerRef} className={styles.timelineSection}>
 			<div ref={timelineRef} className={styles.timelineContent}>
 				{/* Section 1 - Introduction & CTA */}
-				<div className={styles.milestone}>
+				<div className={`${styles.milestone} milestone milestone-1`}>
 					<p className={styles.ctaText}>Scroll to see my journey →</p>
 					<h2 className={`${styles.heading} ${styles.rightAlign}`}>
 						How I’ve Been Making Stuff Forever
@@ -99,7 +251,7 @@ export default function Timeline() {
 				</div>
 
 				{/* Section 2 - Making Things Era */}
-				<div className={styles.milestone}>
+				<div className={`${styles.milestone} milestone milestone-2`}>
 					<div className={styles.leftAlign}>
 						<p>
 							I can’t remember a time when I wasn’t making something—if I had
@@ -121,7 +273,7 @@ export default function Timeline() {
 				</div>
 
 				{/* Section 3 - Tumblr & Coding */}
-				<div className={styles.milestone}>
+				<div className={`${styles.milestone} milestone milestone-3`}>
 					<section className={`${styles.parallaxSection} parallaxSection`}>
 						<img
 							src="/images/about/bedroom.png"
@@ -151,7 +303,7 @@ export default function Timeline() {
 				</div>
 
 				{/* Section 4 - Psychology & Exploration */}
-				<div className={styles.milestone}>
+				<div className={`${styles.milestone} milestone milestone-4`}>
 					<div className={styles.leftAlign}>
 						<h2 className={`${styles.heading} ${styles.leftAlign}`}>
 							Too Many Interests
@@ -178,7 +330,7 @@ export default function Timeline() {
 				</div>
 
 				{/* Section 5 - UI/UX Discovery */}
-				<div className={styles.milestone}>
+				<div className={`${styles.milestone} milestone milestone-5`}>
 					<div className={styles.leftAlign}>
 						<p>
 							With everything shut down during COVID, I had way too much time on
@@ -208,7 +360,7 @@ export default function Timeline() {
 				</div>
 
 				{/* Section 6 - Wrapping Up */}
-				<div className={styles.milestone}>
+				<div className={`${styles.milestone} milestone milestone-6`}>
 					<div className={styles.leftBlock}></div>
 					<div className={styles.rightAlign}>
 						<h2 className={`${styles.heading} ${styles.rightAlign}`}>

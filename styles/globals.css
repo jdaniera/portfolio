@@ -85,6 +85,7 @@ body {
 	font-weight: 400;
 	color: var(--royal-blue);
 	overflow-x: hidden;
+	scroll-behavior: smooth;
 }
 
 .grainyBackground {
@@ -129,8 +130,15 @@ button {
 }
 
 button:hover {
-	background-color: #908abc; /* Lighter purple on hover */
+	background-color: #908abc;
 }
+
+.milestone-1 { background-color: var(--light-cream); }
+.milestone-2 { background-color: var(--jasmine); }
+.milestone-3 { background-color: var(--light-lavender); }
+.milestone-4 { background-color: var(--vanilla); }
+.milestone-5 { background-color: var(--med-lavender); color: var(--white); }
+.milestone-6 { background-color: var(--grey); }
 
 @media (min-width: 600px) {
 	.gridContainer {
