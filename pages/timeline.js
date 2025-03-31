@@ -28,7 +28,7 @@ export default function Timeline() {
 					scrollTrigger: {
 						trigger: container,
 						start: "top top",
-						end: () => `+=${timeline.scrollWidth * 2.5}`, // make scrolling through a bit slower
+						end: () => `+=${timeline.scrollWidth * 3.1}`, // make scrolling through a bit slower
 						scrub: 1,
 						pin: true,
 						anticipatePin: 1,
@@ -37,34 +37,33 @@ export default function Timeline() {
 				});
 
 				const baseTrigger = {
-					start: "left 50%",
-					end: "left 20%",
-					scrub: true,
-					toggleActions: "play none none reset", // reset on scroll back
+					start: "left 70%",
+					end: "right 30%",
+					scrub: 0.3,
 					containerAnimation: horizontalScroll,
 				};
 
-				// SECTION 1: Intro
-				const section1TL = gsap.timeline({
-					scrollTrigger: {
-						trigger: ".milestone-1",
-						...baseTrigger,
-						// markers: true,
-					},
-				});
-				section1TL
-					.from(".milestone-1 .ctaText", {
-						opacity: 0,
-						y: 20,
-						duration: 2,
-						ease: "power3.out",
-					})
-					.from(".milestone-1 .heading", {
-						opacity: 0,
-						y: 40,
-						duration: 2,
-						ease: "power3.out",
-					});
+				// // SECTION 1: Intro
+				// const section1TL = gsap.timeline({
+				// 	scrollTrigger: {
+				// 		trigger: ".milestone-1",
+				// 		...baseTrigger,
+				// 		// markers: true,
+				// 	},
+				// });
+				// section1TL
+				// 	.from(".milestone-1 .ctaText", {
+				// 		opacity: 0,
+				// 		y: 20,
+				// 		duration: 3,
+				// 		ease: "power3.out",
+				// 	})
+				// 	.from(".milestone-1 .heading", {
+				// 		opacity: 0,
+				// 		y: 40,
+				// 		duration: 3,
+				// 		ease: "power3.out",
+				// 	});
 
 				// SECTION 2: Making Things
 				const section2TL = gsap.timeline({
@@ -74,82 +73,97 @@ export default function Timeline() {
 						// markers: true,
 					},
 				});
-				section2TL;
-				section2TL.from(
-					".milestone-2 .slideUpImage.left",
-					{
-						y: 100,
-						opacity: 0,
-						duration: 2,
-						stagger: 0.5,
-						ease: "power2.out",
-					},
-					"-=0.3"
-				);
 
-				// Right images
 				section2TL
+					.from(
+						".milestone-2 .slideUpImage.left",
+						{
+							y: 120,
+							opacity: 0,
+							duration: 3,
+							stagger: {
+								each: 0.3, // slower spacing
+								from: "start",
+							},
+							ease: "power3.out",
+						},
+						"<"
+					)
+					// Left Texts
+					.from(
+						".milestone-2 .leftAlign p",
+						{
+							x: -60,
+							opacity: 0,
+							duration: 2,
+							stagger: {
+								each: 0.5,
+							},
+							ease: "power3.out",
+						},
+						"<+=1" // start while previous animation is still fading in
+					)
+					// Right images
 					.from(
 						".milestone-2 .slideUpImage.right",
 						{
-							y: 100,
+							y: 120,
 							opacity: 0,
-							duration: 2,
-							stagger: 0.5,
-							ease: "power2.out",
+							duration: 3,
+							stagger: {
+								each: 0.8,
+							},
+							ease: "power3.out",
 						},
-						"-=1"
+						"<+=1"
 					)
-					.from(".milestone-2 .leftAlign p", {
-						x: -50,
-						opacity: 0,
-						duration: 2,
-						stagger: {
-							each: 0.8,
-							ease: "power1.inOut",
+					// Right Text
+					.from(
+						".milestone-2 .rightAlign p",
+						{
+							x: 60,
+							opacity: 0,
+							duration: 3,
+							stagger: {
+								each: 0.8,
+							},
+							ease: "power3.out",
 						},
-						ease: "power1.inOut",
-					})
-					.from(".milestone-2 .rightAlign p", {
-						x: 50,
-						opacity: 0,
-						duration: 2,
-						stagger: {
-							each: 0.8,
-							ease: "power1.inOut",
-						},
-						ease: "power1.inOut",
-					});
+						"<+=1"
+					);
 
 				// SECTION 3: Digital Awakening - Text
 				const section3TL = gsap.timeline({
 					scrollTrigger: {
-						trigger: ".milestone-3",
+						trigger: ".milestone-3-text",
 						...baseTrigger,
 						// markers: true,
 					},
 				});
 				section3TL
-					.from(".milestone-3 .heading", {
-						y: 50,
-						opacity: 0,
-						duration: 2,
-						stagger: {
-							each: 0.8,
-							ease: "power1.inOut",
+					.from(
+						".milestone-3-text .heading",
+						{
+							y: 80,
+							opacity: 0,
+							duration: 3,
+							ease: "power3.out",
 						},
-						ease: "power1.inOut",
-					})
-					.from(".milestone-3 .rightAlign p", {
-						y: 20,
-						opacity: 0,
-						duration: 2,
-						stagger: {
-							each: 0.8,
-							ease: "power1.inOut",
+						"<"
+					)
+					.from(
+						".milestone-3-text .leftAlign p",
+						{
+							y: 40,
+							opacity: 0,
+							duration: 2.5,
+							stagger: {
+								each: 0.7,
+							},
+							ease: "power3.out",
 						},
-						ease: "power1.inOut",
-					});
+						"<+=1"
+					);
 
 				// SECTION 3: Parallax layers
 				const section = timeline.querySelector(".parallaxSection");
@@ -209,26 +223,33 @@ export default function Timeline() {
 					},
 				});
 				section4TL
-					.from(".milestone-4 .leftAlign > *", {
-						x: -40,
-						opacity: 0,
-						duration: 1.6,
-						stagger: {
-							each: 0.2,
-							ease: "power1.inOut",
+					.from(
+						".milestone-4 .leftAlign > *",
+						{
+							x: -60,
+							opacity: 0,
+							duration: 2,
+							stagger: {
+								each: 0.5,
+							},
+							ease: "power3.out",
 						},
-						ease: "power1.inOut",
-					})
-					.from(".milestone-4 .rightAlign > *", {
-						x: 40,
-						opacity: 0,
-						duration: 1.6,
-						stagger: {
-							each: 0.2,
-							ease: "power1.inOut",
+						"<"
+					)
+					.from(
+						".milestone-4 .rightAlign > *",
+						{
+							x: 60,
+							opacity: 0,
+							duration: 2,
+							stagger: {
+								each: 0.5,
+							},
+							ease: "power3.out",
 						},
-						ease: "power1.inOut",
-					});
+						"<+=1"
+					);
+
 				// SECTION 5: UI/UX
 				const section5TL = gsap.timeline({
 					scrollTrigger: {
@@ -239,64 +260,82 @@ export default function Timeline() {
 				});
 				section5TL
 					.from(".milestone-5 .leftAlign p", {
-						y: 20,
+						y: 40,
 						opacity: 0,
-						duration: 2,
+						duration: 2.2,
 						stagger: {
-							each: 0.8,
-							ease: "power1.inOut",
+							each: 0.6,
 						},
-						ease: "power1.inOut",
+						ease: "power3.out",
 					})
-					.from(".milestone-5 .heading", {
-						scale: 0.95,
-						opacity: 0,
-						duration: 2,
-						stagger: {
-							each: 0.8,
-							ease: "power1.inOut",
+					.from(
+						".milestone-5 .heading",
+						{
+							scale: 0.94,
+							opacity: 0,
+							duration: 2,
+							ease: "power3.out",
 						},
-						ease: "power1.inOut",
-					})
-					.from(".milestone-5 .list li", {
-						y: 30,
-						opacity: 0,
-						duration: 2,
-						stagger: {
-							each: 0.8,
-							ease: "power1.inOut",
+						"<+=0.8"
+					)
+					.from(
+						".milestone-5 .list li",
+						{
+							y: 30,
+							opacity: 0,
+							duration: 2,
+							stagger: {
+								each: 0.4,
+							},
+							ease: "power3.out",
 						},
-						ease: "power1.inOut",
-					})
-					.from(".milestone-5 .rightAlign p", {
-						y: 20,
-						opacity: 0,
-						duration: 2,
-						stagger: {
-							each: 0.8,
-							ease: "power1.inOut",
+						"<+=0.5"
+					)
+					.from(
+						".milestone-5 .rightAlign p",
+						{
+							y: 20,
+							opacity: 0,
+							duration: 2,
+							stagger: {
+								each: 0.6,
+							},
+							ease: "power3.out",
 						},
-						ease: "power1.inOut",
-					});
+						"<+=0.6"
+					);
 
 				// SECTION 6: Wrap Up
 				const section6TL = gsap.timeline({
 					scrollTrigger: {
 						trigger: ".milestone-6",
-						...baseTrigger,
-						// markers: true,
+						start: "left 95%",
+						end: "right 0%",
+						scrub: 0.2,
+						containerAnimation: horizontalScroll,
 					},
 				});
-				section6TL.from(".milestone-6 p", {
-					y: 40,
-					opacity: 0,
-					duration: 2,
-					stagger: {
-						each: 0.8,
-						ease: "power1.inOut",
-					},
-					ease: "power1.inOut",
-				});
+
+				section6TL
+					.from(".milestone-6 .heading", {
+						y: 60,
+						opacity: 0,
+						duration: 1,
+						ease: "power3.out",
+					})
+					.from(
+						".milestone-6 p",
+						{
+							y: 40,
+							opacity: 0,
+							duration: 1,
+							stagger: {
+								each: 0.1,
+							},
+							ease: "power3.out",
+						},
+						"<+=0.3"
+					);
 			}, container);
 			ScrollTrigger.refresh();
 		};
@@ -313,14 +352,14 @@ export default function Timeline() {
 				<div ref={timelineRef} className={styles.timelineContent}>
 					{/* Section 1 - Introduction & CTA */}
 					<div className={`${styles.milestone} milestone milestone-1`}>
-						<p className={`${styles.ctaText} ctaText`}>
-							Scroll to see my journey →
-						</p>
 						<h2
 							className={`${styles.heading} ${styles.rightAlign} rightAlign heading`}
 						>
 							How I’ve Been Making Stuff Forever
 						</h2>
+						<p className={`${styles.ctaText} ctaText`}>
+							Scroll to see my journey →
+						</p>
 					</div>
 
 					{/* Section 2 - Making Things Era */}
@@ -381,21 +420,23 @@ export default function Timeline() {
 					</div>
 
 					{/* Section 3 - Tumblr & Coding */}
-					<div className={`${styles.milestone} milestone milestone-3`}>
+					{/* <div className={`${styles.milestone}  milestone milestone-3`}>
+						<div>
 						<section className={`${styles.parallaxSection} parallaxSection`}>
 							<img
-								src="/images/about/bedroom-bg.png"
+								src="/images/about/bedroom-bg-scaled.png"
 								className={`${styles.layer} ${styles.bgLayer} bgLayer`}
 							/>
 							<img
-								src="/images/about/bedroom-mg.png"
+								src="/images/about/bedroom-mg-scaled.png"
 								className={`${styles.layer} ${styles.mgLayer} mgLayer`}
 							/>
 							<img
-								src="/images/about/bedroom-fg.png"
+								src="/images/about/bedroom-fg-alt-scaled.png"
 								className={`${styles.layer} ${styles.fgLayer} fgLayer`}
 							/>
 						</section>
+						</div>
 						<div className={styles.leftBlock}></div>
 						<div className={`${styles.rightAlign} rightAlign`}>
 							<h2
@@ -412,6 +453,43 @@ export default function Timeline() {
 								I had no idea this was actual web development—I just wanted my
 								page to look cool and feel like me. Custom fonts? Moving
 								elements? Fancy hover effects? You name it, I tried it.
+							</p>
+						</div>
+					</div> */}
+
+					<div
+						className={`${styles.milestone} ${styles.parallaxMilestone} milestone milestone-3-image`}
+					>
+						<section className={`${styles.parallaxSection} parallaxSection`}>
+							<img
+								src="/images/about/bedroom-bg-scaled.png"
+								className={`${styles.layer} ${styles.bgLayer} bgLayer`}
+							/>
+							<img
+								src="/images/about/bedroom-mg-scaled.png"
+								className={`${styles.layer} ${styles.mgLayer} mgLayer`}
+							/>
+							<img
+								src="/images/about/bedroom-fg-alt-scaled.png"
+								className={`${styles.layer} ${styles.fgLayer} fgLayer`}
+							/>
+						</section>
+					</div>
+
+					<div
+						className={`${styles.milestoneThreeText} milestone milestone-3-text`}
+					>
+						<div className={`${styles.leftAlign} leftAlign`}>
+							<h2 className={`${styles.heading} heading`}>
+								The Digital Awakening
+							</h2>
+							<p>
+								Back in my Tumblr days, I spent hours tweaking HTML & CSS to
+								make my blog just right.
+							</p>
+							<p>
+								I had no idea this was actual web development—I just wanted my
+								page to look cool and feel like me.
 							</p>
 						</div>
 					</div>
@@ -483,10 +561,9 @@ export default function Timeline() {
 
 					{/* Section 6 - Wrapping Up */}
 					<div className={`${styles.milestone} milestone milestone-6`}>
-						<div className={styles.leftBlock}></div>
-						<div className={`${styles.rightAlign} rightAlign`}>
+						<div className={`${styles.leftAlign} leftAlign`}>
 							<h2
-								className={`${styles.heading} ${styles.rightAlign} rightAlign heading`}
+								className={`${styles.heading} ${styles.leftAlign} leftAlign heading`}
 							>
 								Okay, this feels right.
 							</h2>
